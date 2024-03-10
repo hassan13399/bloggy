@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="data-grid-list" *ngIf="display === 'list'">
+    <h2>List {{model|titlecase}}</h2>
+
+    <div class="row" *ngFor="let item of items | paginate: {  id: 'pagination',
+                                                                    itemsPerPage: itemsPerPage,
+                                                                    currentPage: currentPage,
+                                                                    totalItems: count } ;
+          let i = index">
+
+      <div class="col" *ngFor="let displayField of displayFields">{{displayField}}: {{item.data[displayField]}}</div>
+      <div class="col-sm-2">
+        <button (click)="edit(i)" class="btn btn-secondary btn-sm">Edit</button>
+        <button (click)="openModal(modal, i)" class="btn btn-secondary btn-sm">Delete</button>
+      </div>
+    </div>
+    <st-pagination (pageChange)="onPageChanged($event)"></st-pagination>
+    <div class="data-grid-action">
+      <button (click)="create()" class="btn btn-secondary btn-sm">New</button>
+    </div>
+
+    <div class="data-grid-list-bottom">
+      <ng-content select="[dataGridListBottom]"></ng-content>
+    </div>
+
+  </div>
+
+  <div class="data-grid-edit" *ngIf="display === 'edit' || display === 'new'">
+    <h2>Edit {{model|titlecase}}</h2>
+    <st-form-action #stFormActionEdit
+                    [model]="model"
+                    [item]="item"
+                    [jsonModel]="jsonModel"
+                    (stDataSave)="afterSave($event)"></st-form-action>
+    <div class="data-grid-action" *ngIf="display === 'edit'">
+      <button (click)="create()" class="btn btn-secondary btn-sm">New</button>
+    </div>
+
+    <div *ngIf="display === 'edit'" class="data-grid-edit-bottom">
+      <ng-content select="[dataGridEditBottom]"></ng-content>
+    </div>
+  </div>
+</div>
+
+<ng-template #modal let-c="close" let-d="dismiss">
+  <st-modal [title]="'Delete Element'"
+            [modalRef] = "modalRef"
+            [cancelLabel] = "'Cancel'"
+            [actionLabel] = "'Delete'"
+            (onActionClick)="deleteFromModal()">
+    <div modal-body>You will delete an element, please confirm</div>
+  </st-modal>
+</ng-template>

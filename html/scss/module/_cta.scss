@@ -1,0 +1,28 @@
+/*------------------------------------
+              Call to action
+-----------------------------------*/
+
+.cta{
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.cta-player {
+  background-color: $blue-turquoise;
+  background-image: url('../img/cta-player.png');
+  background-repeat: no-repeat;
+  background-position:  center 36px;
+  min-height: 235px;
+  padding-top: 160px;
+}
+
+a.view-all{
+  color: $blue-turquoise;
+  text-decoration: underline;
+  font-size: 15px;
+  font-weight: 500;
+  &:hover{
+    text-decoration: none;
+  }
+}

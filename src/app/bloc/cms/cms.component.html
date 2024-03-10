@@ -1,0 +1,30 @@
+<div class="page-title pt-3 pb-2" *ngIf="mode==='page'">
+    <div class="container" *ngIf="page">
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                <h1 class="float-left">{{page.title}}</h1>
+                <div *ngIf="additionalComponentTop" class="additional-component-top float-left float-xl-right">
+                    <ndc-dynamic [ndcDynamicComponent]="additionalComponentTop"></ndc-dynamic>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-content py-4 py-sm-5 bg-gazon" *ngIf="mode==='page'">
+    <div class="container" *ngIf="page">
+        <div class="row justify-content-center">
+<!--            <div class="banner-web pb-4" *ngIf="category==='bloggy_planet' || category==='general'">-->
+<!--                <img class="img-fluid" src="assets/img/bloggy-bannerweb.jpg" alt="Be the king">-->
+<!--            </div>-->
+            <div class="col-xl-10 fg-gazon">
+                <h3>{{page.teaser}}</h3>
+                <div [innerHTML]="page.body"></div>
+                <div *ngIf="additionalComponentBottom" class="additional-component-bottom">
+                    <ndc-dynamic [ndcDynamicComponent]="additionalComponentBottom"></ndc-dynamic>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cms-body" *ngIf="page && mode==='text'" [innerHTML]="page.body"></div>

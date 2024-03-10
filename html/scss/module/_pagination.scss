@@ -1,0 +1,51 @@
+/*------------------------------------
+            Pagination
+-----------------------------------*/
+
+.navigation{
+  height: 100%;
+}
+
+.pagination{
+  height: 100%;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.page-link{
+  height: 100%;
+  line-height: 3;
+  padding: 0 5px;
+  border: none;
+  background: transparent;
+  color: $body-color;
+  font-weight: 500;
+  font-size: 14px;
+  &.active{
+    color: $blue-turquoise;
+    text-decoration: underline;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 2.3;
+  }
+}
+
+.page-item.previous{
+  .page-link{
+    background: $silver-light url('../img/pager-left.png') no-repeat center center;
+    width: 70px;
+    &:hover{
+      background: darken($silver-light, 7.5%) url('../img/pager-left.png') no-repeat center center;
+    }
+  }
+}
+
+.page-item.next{
+  .page-link{
+    background: $silver-light url('../img/pager-right.png') no-repeat center center;
+    width: 70px;
+    &:hover{
+      background: darken($silver-light, 7.5%) url('../img/pager-right.png') no-repeat center center;
+    }
+  }
+}

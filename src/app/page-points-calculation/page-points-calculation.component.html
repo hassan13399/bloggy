@@ -1,0 +1,187 @@
+<app-page-top></app-page-top>
+
+<app-cms [category]="'points_calculation'"></app-cms>
+
+<!--Comments and reactions template-->
+<!--<div class="page-content pt-3 pb-5 bg-gazon">-->
+    <!--<div class="container">-->
+        <!--<div class="row justify-content-center">-->
+            <!--<div class="col-xl-10 fg-gazon">-->
+                <!--<div class="edito bg-white rounded shadow">-->
+                    <!--<div class="edito__menu">-->
+                        <!--<div class="row justify-content-between">-->
+                            <!--<div class="col-sm-6 col-lg-5 order-sm-2">-->
+                                <!--<div class="row justify-content-end no-gutters">-->
+                                    <!--<div class="col-6 pr-sm-1 pb-2 px-2 px-sm-0 pb-sm-0">-->
+                                        <!--<button class="btn btn-block btn-outline-gray btn-sm" type="submit">Precedent-->
+                                        <!--</button>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-6 pl-sm-1 px-2 px-sm-0">-->
+                                        <!--<button class="btn btn-block btn-outline-gray btn-sm" type="cancel">Suivant-->
+                                        <!--</button>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-6 col-lg-4 order-sm-1">-->
+                                <!--<div class="row justify-content-start no-gutters">-->
+                                    <!--<div class="col-7 pr-sm-1 pb-2 px-2 px-sm-0 pb-sm-0">-->
+                                        <!--<button class="btn btn-block btn-gray btn-sm" type="submit">Ajouter un edito-->
+                                        <!--</button>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-5 pl-sm-1 px-2 px-sm-0">-->
+                                        <!--<button class="btn btn-block btn-outline-gray btn-sm" type="cancel">Modifier-->
+                                        <!--</button>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="edito__content pt-5">-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-md-3 edito__content-profile">-->
+                                <!--<img class="edito__profile-photo&#45;&#45;big rounded-circle img-fluid"-->
+                                     <!--src="assets/img/edito_big.png">-->
+                            <!--</div>-->
+                            <!--<div class="col-md-9 edito__content-comments">-->
+                                <!--<div class="edito__main pb-5">-->
+                                    <!--<div class="edito__main-title text-turquoise">-->
+                                        <!--Les mots du Capitaine...-->
+                                    <!--</div>-->
+                                    <!--<div class="edito__main-name text-zodiac">-->
+                                        <!--Fred Simon-->
+                                    <!--</div>-->
+                                    <!--<div class="edito__main-comment pt-3">-->
+                                        <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pulsi recurrant?-->
+                                            <!--Vos autem cum perspicuis dubia debeatis illustrare, dubiis perspicua-->
+                                            <!--conamini tollere. Illis videtur, qui illud non dubitant bonum dicere -; Duo-->
+                                            <!--Reges: constructio interrete. Haec quo modo conveniant, non sane intellego.-->
+                                            <!--Tecum optime, deinde etiam cum mediocri amico.</p>-->
+                                        <!--<p>Eorum enim omnium multa praetermittentium, dum eligant aliquid, quod-->
+                                            <!--sequantur, quasi curta sententia; Ego quoque, inquit, didicerim libentius si-->
+                                            <!--quid attuleris, quam te reprehenderim. Quis hoc dicit? Quid sequatur, quid-->
+                                            <!--repugnet, vident.</p>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="edito__reactions">-->
+                                    <!--<div class="edito__reactions-title text-turquoise pb-3">-->
+                                        <!--Les réactions-->
+                                    <!--</div>-->
+                                    <!--<div class="edito__reactions-table">-->
+                                        <!--<div class="edito__reaction-item">-->
+                                            <!--<div class="row">-->
+                                                <!--<div class="col-sm-2 edito__reaction-profile">-->
+                                                    <!--<img class="edito__profile-photo&#45;&#45;small rounded-circle img-fluid"-->
+                                                         <!--src="assets/img/edito_small.png">-->
+                                                <!--</div>-->
+                                                <!--<div class="col-sm-10">-->
+                                                    <!--<div class="edito__reaction-date-name clearfix">-->
+                                                        <!--<div class="float-left edito__reaction-name text-zodiac">-->
+                                                            <!--Matthieu Cordero-->
+                                                        <!--</div>-->
+                                                        <!--<div class="float-right edito__reaction-date">-->
+                                                            <!--21.01.18-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="edito__reaction-comment clearfix">-->
+                                                        <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut-->
+                                                            <!--pulsi-->
+                                                            <!--recurrant? Vos autem cum perspicuis dubia debeatis-->
+                                                            <!--illustrare,-->
+                                                            <!--dubiis perspicua conamini tollere. Illis videtur, qui illud-->
+                                                            <!--non-->
+                                                            <!--dubitant bonum dicere</p>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="edito__reaction-item">-->
+                                            <!--<div class="row">-->
+                                                <!--<div class="col-sm-2 edito__reaction-profile">-->
+                                                    <!--<img class="edito__profile-photo&#45;&#45;small rounded-circle img-fluid"-->
+                                                         <!--src="assets/img/edito_small.png">-->
+                                                <!--</div>-->
+                                                <!--<div class="col-sm-10">-->
+                                                    <!--<div class="edito__reaction-date-name clearfix">-->
+                                                        <!--<div class="float-left edito__reaction-name text-zodiac">-->
+                                                            <!--Matthieu Cordero-->
+                                                        <!--</div>-->
+                                                        <!--<div class="float-right edito__reaction-date">-->
+                                                            <!--21.01.18-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="edito__reaction-comment">-->
+                                                        <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut-->
+                                                            <!--pulsi-->
+                                                            <!--recurrant? Vos autem cum perspicuis dubia debeatis-->
+                                                            <!--illustrare,-->
+                                                            <!--dubiis perspicua conamini tollere. Illis videtur, qui illud-->
+                                                            <!--non-->
+                                                            <!--dubitant bonum dicere</p>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="edito__reaction-item">-->
+                                            <!--<div class="row">-->
+                                                <!--<div class="col-sm-2 edito__reaction-profile">-->
+                                                    <!--<img class="edito__profile-photo&#45;&#45;small rounded-circle img-fluid"-->
+                                                         <!--src="assets/img/edito_small.png">-->
+                                                <!--</div>-->
+                                                <!--<div class="col-sm-10">-->
+                                                    <!--<div class="edito__reaction-date-name clearfix">-->
+                                                        <!--<div class="float-left edito__reaction-name text-zodiac">-->
+                                                            <!--Matthieu Cordero-->
+                                                        <!--</div>-->
+                                                        <!--<div class="float-right edito__reaction-date">-->
+                                                            <!--21.01.18-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="edito__reaction-comment">-->
+                                                        <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut-->
+                                                            <!--pulsi-->
+                                                            <!--recurrant? Vos autem cum perspicuis dubia debeatis-->
+                                                            <!--illustrare,-->
+                                                            <!--dubiis perspicua conamini tollere. Illis videtur, qui illud-->
+                                                            <!--non-->
+                                                            <!--dubitant bonum dicere</p>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="edito__reaction-item">-->
+                                            <!--<div class="row">-->
+                                                <!--<div class="col-sm-2 edito__reaction-profile">-->
+                                                    <!--<img class="edito__profile-photo&#45;&#45;small rounded-circle img-fluid"-->
+                                                         <!--src="assets/img/edito_small.png">-->
+                                                <!--</div>-->
+                                                <!--<div class="col-sm-10">-->
+                                                    <!--<div class="edito__reaction-date-name clearfix">-->
+                                                        <!--<div class="float-left edito__reaction-name text-zodiac">-->
+                                                            <!--Matthieu Cordero-->
+                                                        <!--</div>-->
+                                                        <!--<div class="float-right edito__reaction-date">-->
+                                                            <!--21.01.18-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="edito__reaction-comment">-->
+                                                        <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut-->
+                                                            <!--pulsi-->
+                                                            <!--recurrant? Vos autem cum perspicuis dubia debeatis-->
+                                                            <!--illustrare,-->
+                                                            <!--dubiis perspicua conamini tollere. Illis videtur, qui illud-->
+                                                            <!--non-->
+                                                            <!--dubitant bonum dicere</p>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

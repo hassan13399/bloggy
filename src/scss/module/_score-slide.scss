@@ -1,0 +1,114 @@
+/*------------------------------------
+              Score Slide
+-----------------------------------*/
+
+//Sass for Slick
+
+.score-slide{
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin-bottom: -10px; // To stick to the summary
+}
+
+.slick-arrow{
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 22px;
+  height: 100%;
+  padding: 0;
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background-color: $white;
+  z-index: 100;
+  background-repeat: no-repeat;
+  background-position-y: center;
+}
+
+.slick-prev{
+  background-image: url('/assets/img/arrow-left.png');
+  left: 0;
+  &.slick-disabled{
+    background-image: url('/assets/img/arrow-left-disabled.png');
+  }
+}
+
+.slick-next{
+  background-image: url('/assets/img/arrow-right.png');
+  right: 0;
+  &.slick-disabled{
+    background-image: url('/assets/img/arrow-right-disabled.png');
+  }
+}
+
+// Sass for design
+
+.score-slide__item{
+  float: left;
+  padding: 25px 62px;
+  position: relative;
+  &:before{
+    content:"";
+    width: 39px;
+    height: 27px;
+    background: url('/assets/img/icon-ball.png') no-repeat;
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    margin-top: -13px;
+  }
+  &.last:before{
+    background: none;
+  }
+}
+
+.score-slide__item-details{
+  width: 200px;
+}
+
+.score-slide__item-details-wrapper{
+  background-image: url('/assets/img/shape-score.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 25px 0;
+}
+
+.score-slide__item-day{
+  font-family: $teko;
+  font-size: 18px;
+  color: $silver;
+  line-height: 1;
+  margin-bottom: -10px;
+}
+
+.score-slide__item-number{
+  font-size: 30px;
+  font-family: $teko;
+  margin: -13px 0 -20px 0;
+}
+
+.score-slide__item-points-number{
+  color: $blue-turquoise;
+}
+
+.score-slide__item-rank-number{
+  color: $tundora;
+}
+
+.score-slide__item-unit{
+  font-size: 10px;
+  font-family: $montserrat;
+  font-weight: 700;
+  color: $gray;
+}
+
+@include media-breakpoint-only(xs) {
+  .score-slide__item{
+    padding: 25px 20px;
+  }
+}

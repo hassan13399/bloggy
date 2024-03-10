@@ -1,0 +1,87 @@
+/*------------------------------------
+            HEADER style
+-----------------------------------*/
+
+.header__logo-name{
+  font-family: $teko;
+  font-size: 23px;
+  color: #fff;
+  padding-left: 5px;
+  vertical-align: middle;
+}
+
+.header__menu{
+  .nav{
+    width: 100%;
+  }
+  a{
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    &.active{
+      color: $blue-turquoise;
+    }
+  }
+}
+
+.navbar-toggler{
+  background: $blue-zodiac;
+}
+
+.navbar-collapse{
+  .show{
+
+  }
+}
+
+.header__profile{
+  position: relative;
+}
+
+.header__profile-photo{
+  height: 47px;
+  width: 47px;
+}
+
+.header__profile-notification{
+  width: 23px;
+  height: 23px;
+  background: $blue-turquoise;
+  color: #fff;
+  font-weight: bold;
+  position: absolute;
+  top: -8px;
+  right: 0;
+  font-family: $teko;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+@include media-breakpoint-down(xs) {
+
+  .header__menu{
+    a{
+      display: block;
+      text-align: right;
+    }
+  }
+  .dropdown-menu{
+    background: $blue-zodiac;
+    width: 100%;
+    //padding: 0;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .header{
+    background: rgba(0,0,0,0.6);
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .dropdown-menu{
+    background: $blue-zodiac;
+    min-width: auto;
+    //padding: 0;
+  }
+}

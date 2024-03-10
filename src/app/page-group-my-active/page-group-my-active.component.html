@@ -1,0 +1,334 @@
+<div class="section-top">
+    <app-main-menu></app-main-menu>
+</div>
+
+<div class="content-banner">
+    <app-countdown [displayType]="'default'"></app-countdown>
+</div>
+<app-flash [destination]="'feedback'"></app-flash>
+
+<!--Title-->
+<div class="title pt-4 pb-3 ">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                <h1 class="d-inline">{{'MENU.__Mes concours' | translate}}</h1>
+                <div class="d-md-inline ml-md-4 mt-4 mt-md-0 classement-form" *ngIf="hasGroup">
+                    <form class="d-inline" [formGroup]="formGroup">
+                        <select class="group-select custom-select text-center" formControlName="group">
+                            <option *ngFor="let group of groups" [ngValue]="group.value">
+                                {{ group.label }}
+                            </option>
+                        </select>
+                    </form>
+                    <div class="league-menu d-inline">
+                        <p class="d-block d-lg-inline ml-lg-2 mt-2">
+                            <a *ngIf="hideDescription" stPreventDefaultEvent (click)="setHideDescription(false)"
+                               href="#nolink">{{'LABEL.my_league_show_description' | translate}}</a>
+                            <a *ngIf="!hideDescription" stPreventDefaultEvent (click)="setHideDescription(true)"
+                               href="#nolink">{{'LABEL.my_league_hide_description' | translate}}</a>
+                            <a *ngIf="userId === captainId" routerLink="/group/edit/{{groupId}}">{{'LABEL.Manage_this_league'
+                                | translate}}</a>
+                            <a *ngIf="userId === captainId" stPreventDefaultEvent (click)="openDeleteModal()"
+                               href="#nolink">{{'LABEL.Delete_this_league' | translate}}</a>
+                            <a *ngIf="userId !== captainId" stPreventDefaultEvent (click)="openLeaveModal()" href="#nolink">{{'LABEL.Leave_this_league'
+                                | translate}}</a>
+                        </p>
+                    </div>
+                </div>
+                <p *ngIf="!hasGroup">{{'LABEL.__Vous n avez pas encore rejoint de concours' | translate}}</p>
+                <p *ngIf="!hideDescription">{{group.description}}</p>
+                <div class="row no-gutters">
+                    <div class="col-sm-6">
+                        <a *ngIf="!hasGroup" class="btn btn-primary btn-block my-2 rounded-0 text-uppercase"
+                           routerLinkActive="active" routerLink="/group/create">{{ 'MENU.__Créer_un_concours' |
+                            translate }}</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <a *ngIf="!hasGroup" class="btn btn-secondary btn-block my-2 rounded-0 text-uppercase"
+                           routerLinkActive="active" routerLink="/group/join">{{ 'MENU.__Rejoindre_un_concours' |
+                            translate }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Title-->
+
+<div class="bg-gazon">
+    <div class="bg-white">
+        <app-level2-menu
+            [menu]="tabL2Menu"
+            [activeItem]="activeL2Menu"
+            *ngIf="hasGroup && isRanking && isAllowed"
+        ></app-level2-menu>
+        <app-day-menu
+            [menu]="tabL3Menu"
+            [activeDay]="activeL3Menu"
+            *ngIf="hasGroup && isRanking && isAllowed"
+        ></app-day-menu>
+    </div>
+    <app-podium
+        [isAllowed]="isAllowed"
+        [isRanking]="isRanking"
+        [podium]="podium"
+    ></app-podium>
+
+<!--Classement-->
+<div class="classement-content py-4" *ngIf="hasGroup && !isRanking">
+    <div class="container">
+        <div class="row justify-content-center no-gutters">
+            <div class="col-xl-10">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th class="text-center">{{'FORM_LABEL.Supporter of' | translate}}</th>
+                            <th>{{'FORM_LABEL.Pseudo' | translate}}
+                                <!--<img src="assets/img/info-th-icon.png" class="th-info-icon" data-container="body"
+                                     data-toggle="popover"
+                                     data-placement="top" data-trigger="hover" data-content="Informations Pseudo.">--></th>
+                            <th>{{'LABEL.__Concours' | translate}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let user of users">
+                            <td class="text-center"><img *ngIf="user.team"
+                                                         class="classement__country__flag rounded-circle"
+                                                         src="{{user.team.flag | stImagePath}}"></td>
+                            <td>
+                                <img *ngIf="user.photo" class="classement__profile-photo rounded-circle" src="{{user.photo | stImagePath}}">
+                                <img *ngIf="!user.photo" class="classement__profile-photo rounded-circle" src="/assets/img/avatar_turquoise.png">
+                                {{user.pseudo}}
+
+                <span class="d-block d-md-inline float-md-right pl-md-2">
+                  <a *ngIf="userId !== user.id" class="" (click)="goToProno(user.id)" stPreventDefaultEvent href="#nolink">{{'LABEL.see_prono' | translate}}</a>
+                  <a *ngIf="userId !== user.id && userId === captainId" class="text-danger" stPreventDefaultEvent href="#nolink" (click)="openKickModal(user.id)">{{'LABEL.remove_from_group' | translate}}</a>
+                </span>
+              <td>{{this.groupLabel}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Classement-->
+
+<div class="classement-content py-4 bg-gray" *ngIf="isAllowed === false && isRanking">
+    <div class="container">
+        <div class="row justify-content-center no-gutters">
+            <div class="col-xl-10 text-center">
+                <p>{{"LABEL.not_allowed_to_consult_other_group"|translate}}</p>
+                <img style="max-width: 100%; height: auto;" [src]="currentImageSrc"/>
+
+                <p class="pt-4"><a routerLink="/formules" class="btn btn-primary">
+                    {{"LABEL.become_premium"|translate}}
+                </a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!hasAccess && isAllowed" class="bg-gray py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <p>{{"LABEL.ranking_unavailable_until_23"|translate}}</p>
+                <img style="max-width: 100%; height: auto;" [src]="currentRankingImageSrc"/>
+
+
+                <p class="pt-4"><a href="/formules" class="btn btn-primary">{{"LABEL.become_premium"|translate}}</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Classement-->
+<div class="classement-content py-4" [ngClass]="{ 'bg-gray': !hasRanking }" *ngIf="hasGroup && isRanking && isAllowed">
+    <div class="container">
+        <div class="row justify-content-center no-gutters">
+            <div class="col-xl-10">
+                <p *ngIf="!hasRanking">{{'LABEL.__ranking_no_result' | translate}}</p>
+
+                <div class="table-responsive" *ngIf="hasRanking">
+                    <table class="table table-striped table-bordered">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th class="text-center">{{'LABEL.__Rank' | translate}}</th>
+                            <th class="text-center">{{'LABEL.__Rank_In_Group' | translate}}</th>
+                            <th class="text-center d-none d-md-table-cell">{{'FORM_LABEL.Supporter of' | translate}}</th>
+                            <th>{{'FORM_LABEL.Pseudo' | translate}}</th>
+                            <!--<th>{{'LABEL.__Concours' | translate}}</th>-->
+                            <!--<th>{{'LABEL.__Move' | translate}}</th>-->
+                            <th class="text-center">{{'LABEL.__Points' | translate}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let user of rankings; let i = index;">
+
+                            <!--<td class="text-center text-violet">{{rank.id}}</td>
+                            <td class="text-center text-violet" *ngIf="rank.rankings.length">{{rank.rankings[0]['rank']}}</td>
+                            <td class="text-center text-violet" *ngIf="!rank.rankings.length">-</td>
+                            <td class="text-center text-violet">{{rank.pseudo}}</td>-->
+                            <td class="text-center text-violet">{{i+1}}
+                                <span class="move-zero" *ngIf="showMove && groupMove[i] === 0">=</span>
+                                <span class="move-positive" *ngIf="showMove && groupMove[i] > 0">+{{groupMove[i]}}</span>
+                                <span class="move-negative" *ngIf="showMove && groupMove[i] < 0">{{groupMove[i]}}</span>
+                            </td>
+                            <td class="text-center text-violet" *ngIf="user.rankings[0]">{{user.rankings[0].rank}}
+                                <span class="move-zero" *ngIf="showMove && user.rankings[0].move === 0">=</span>
+                                <span class="move-positive" *ngIf="showMove && user.rankings[0].move > 0">+{{user.rankings[0].move}}</span>
+                                <span class="move-negative" *ngIf="showMove && user.rankings[0].move < 0">{{user.rankings[0].move}}</span>
+                            </td>
+
+                            <td class="text-center text-violet" *ngIf="!user.rankings[0]">--</td>
+                            <td class="text-center d-none d-md-table-cell"><img *ngIf="user.team"
+                                                         class="classement__country__flag rounded-circle"
+                                                         src="{{user.team.flag | stImagePath}}"></td>
+                            <td>
+                                <img *ngIf="user.photo" class="classement__profile-photo rounded-circle" src="{{user.photo | stImagePath}}">
+                                <img *ngIf="!user.photo" class="classement__profile-photo rounded-circle" src="/assets/img/avatar_turquoise.png">
+                                {{user.pseudo}}
+                                <span class="d-block d-md-inline float-md-right pl-md-2">
+                                  <a *ngIf="userId !== user.id" class="d-none d-md-inline" stPreventDefaultEvent href="#nolink" (click)="goToProno(user.id)">{{'LABEL.see_prono' | translate}}</a>
+                                    <br *ngIf="userId !== user.id && userId === captainId"/>
+                                  <a *ngIf="userId !== user.id && userId === captainId" class="text-danger"
+                                     (click)="openKickModal(user.id)" stPreventDefaultEvent href="#nolink">{{'LABEL.remove_from_group' | translate}}</a>
+                                </span>
+                            </td>
+                            <!--<td>Worlcup 2018</td>-->
+                            <!--<td><span class="classement__up"></span>-</td>-->
+                            <td class="text-center classement__points" *ngIf="user.rankings[0]">
+                                <a class="" stPreventDefaultEvent href="#nolink" (click)="goToProno(user.id)">{{user.rankings[0]['points']}}</a>
+                            </td>
+                            <td class="text-center classement__points" *ngIf="!user.rankings[0]">--</td>
+
+                            <!--
+                            <td class="text-center text-violet">{{rank.rank}}</td>
+                            <td class="text-center"><img *ngIf="rank.user.team" class="classement__country__flag rounded-circle" src="{{rank.user.team.flag | stImagePath}}"></td>
+                            <td>
+                              <img *ngIf="rank.user.photo" class="classement__profile-photo rounded-circle" src="{{rank.user.photo | stImagePath}}">
+                              {{rank.user.pseudo}}
+                            </td>
+                            <td>Worlcup 2018</td>
+                            <td><span class="classement__up"></span>-</td>
+                            <td class="text-center classement__points">{{rank.points}}</td>-->
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Classement-->
+</div>
+
+<ng-template #deleteModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">{{'LABEL.Modal_Delete_League_Title'|translate}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p [translate]="'LABEL.Modal_Delete_League_Body'"
+        ></p>
+    </div>
+    <div class="modal-footer">
+        <div class="row justify-content-center">
+            <div class="col">
+                <a (click)="deleteGroup()" class="btn btn-primary btn-block">{{"LABEL.Modal_Delete_League_Button"|translate}}</a>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #leaveModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">{{'LABEL.Modal_Leave_League_Title'|translate}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p [translate]="'LABEL.Modal_Leave_League_Body'"
+        ></p>
+    </div>
+    <div class="modal-footer">
+        <div class="row justify-content-center">
+            <div class="col">
+        <a (click)="leaveGroup()" class="btn btn-primary btn-block">{{"LABEL.Modal_Leave_League_Button"|translate}}</a>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #kickModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">{{'LABEL.Modal_Kick_League_Title'|translate}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p [translate]="'LABEL.Modal_Kick_League_Body'"
+        ></p>
+    </div>
+    <div class="modal-footer">
+        <div class="row justify-content-center">
+            <div class="col">
+        <a (click)="kickUserFromGroup()" class="btn btn-primary btn-block">{{"LABEL.Modal_Kick_League_Button"|translate}}</a>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">{{'TIMER.modal_title'|translate}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body text-center">
+        <p *ngIf="remainingTime > 0" [translate]="'TIMER.time_remaining_confirmation'"
+           [translateParams]="{ time: formatTimer(remainingTime) }"
+        ></p>
+        <p *ngIf="remainingTime <= 0" [translate]="'TIMER.no_more_time'">
+        </p>
+        <div><a (click)="goToProno(selectedUser, true)" class="btn btn-primary" *ngIf="selectedUser && remainingTime > 0">{{"LABEL.see_prono"|translate}}</a></div>
+    </div>
+    <div class="modal-footer">
+        <div class="row justify-content-center">
+            <div class="col text-center">
+                <img style="max-width: 100%; height: auto;" [src]="currentTimerImageSrc"/>
+                <div class="pt-4"><a routerLink="/formules" class="btn btn-primary">
+                    {{"LABEL.become_premium"|translate}}
+                </a></div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #NotAllowed let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">{{'RANKING_NOT_ALLOWED.modal_title'|translate}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p *ngIf="remainingTime > 0" [translate]="'RANKING_NOT_ALLOWED.modal_body'"
+        ></p>
+    </div>
+    <div class="modal-footer">
+        <div class="row justify-content-center">
+            <div class="col">
+        <a (click)="goToPremium()" class="btn btn-primary">{{"RANKING_NOT_ALLOWED.become_premium_button"|translate}}</a>
+            </div>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,21 @@
+/*------------------------------------
+            Layout
+-----------------------------------*/
+
+.separator {
+  display: block;
+  width: 32px;
+  height: 4px;
+  margin: 15px auto 15px;
+  background-color: $blue-turquoise;
+  position: relative;
+  @include border-radius(2px);
+}
+
+
+
+[data-toggle="popover"]{
+  &:hover{
+    cursor: pointer;
+  }
+}

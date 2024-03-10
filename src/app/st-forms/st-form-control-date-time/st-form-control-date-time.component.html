@@ -1,0 +1,11 @@
+<input name="test1" type="text" [value]="value" />
+<button (click)="showSelector()">Select a date</button>
+<div class="row" *ngIf="displaySelector">
+    <div class="col-lg-6 col-md-10">
+    <dl-date-time-picker
+            (change) = "onDateTimeSelect($event)"
+            [maxView] = "'hour'"
+            [startDate] = "startDate"
+            [minuteStep] = "15"></dl-date-time-picker>
+    </div>
+</div>

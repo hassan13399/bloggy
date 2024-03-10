@@ -1,0 +1,25 @@
+/*------------------------------------
+              Jumbotron
+-----------------------------------*/
+
+.jumbotron{
+  background: transparent;
+  margin-bottom: 0;
+  padding: 14.5rem 0 10rem;
+}
+
+.jumbotron__lead{
+    font-weight: 700;
+}
+
+@media (max-width: 369px) {
+  .jumbotron{
+    padding: 7rem 0 0rem;
+  }
+}
+
+@media (min-width: 370px) and (max-width: 575.98px ) {
+  .jumbotron{
+    padding: 15rem 0 2rem;
+  }
+}

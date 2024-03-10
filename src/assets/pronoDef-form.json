@@ -1,0 +1,113 @@
+[
+  {
+    "type": "INPUT",
+    "id": "name",
+    "label": "Name",
+    "maxLength": 42,
+    "placeholder": "Name"
+  },
+  {
+    "type": "SELECT",
+    "id": "day_id",
+    "label": "Day",
+    "maxLength": 42,
+    "placeholder": "Select a day",
+    "targetModel" : "day",
+    "targetField" : "name_fr"
+  },
+  {
+    "type": "ST_DATETIME",
+    "id": "start_time",
+    "label": "Start time",
+    "maxLength": 42,
+    "placeholder": "Start time"
+  },
+  {
+    "type": "SELECT",
+    "id": "multiplier",
+    "label": "Affiche",
+    "placeholder": "",
+    "options": [
+      {
+        "label": "x1",
+        "value": 1
+      },
+      {
+        "label": "x2",
+        "value": 2
+      },
+      {
+        "label": "x3",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "type": "SELECT",
+    "id": "host_team_id",
+    "label": "Host Team",
+    "maxLength": 42,
+    "placeholder": "Select a team",
+    "targetModel" : "team",
+    "targetField" : "name_fr"
+  },
+  {
+    "type": "SELECT",
+    "id": "visitor_team_id",
+    "label": "Visitor Team",
+    "maxLength": 42,
+    "placeholder": "Select a team",
+    "targetModel" : "team",
+    "targetField" : "name_fr"
+  },
+  {
+    "type": "SELECT",
+    "id": "result_team1_id",
+    "label": "Team 1",
+    "maxLength": 42,
+    "placeholder": "Select a team",
+    "targetModel" : "team",
+    "targetField" : "name_fr"
+  },
+  {
+    "type": "SELECT",
+    "id": "result_team2_id",
+    "label": "Team 2",
+    "maxLength": 42,
+    "placeholder": "Select a team",
+    "targetModel" : "team",
+    "targetField" : "name_fr"
+  },
+  {
+    "type": "SELECT",
+    "id": "result_player1_id",
+    "label": "Player 1",
+    "maxLength": 42,
+    "placeholder": "Select a player",
+    "targetModel" : "player",
+    "targetField" : "name"
+  },
+  {
+    "type": "SELECT",
+    "id": "result_player2_id",
+    "label": "Player 2",
+    "maxLength": 42,
+    "placeholder": "Select a player",
+    "targetModel" : "player",
+    "targetField" : "name"
+  },
+  {
+    "type": "INPUT",
+    "id": "result_score_host",
+    "label": "Score host",
+    "maxLength": 5,
+    "placeholder": ""
+  },
+  {
+    "type": "INPUT",
+    "id": "result_score_visitor",
+    "label": "Score Visitor",
+    "maxLength": 5,
+    "placeholder": ""
+  }
+]

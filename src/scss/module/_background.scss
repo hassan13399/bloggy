@@ -1,0 +1,102 @@
+/*------------------------------------
+            Bachgrounds
+-----------------------------------*/
+// Colors
+
+.bg-turquoise{
+  background: $blue-turquoise;
+}
+
+.bg-zodiac{
+  background: $blue-zodiac;
+}
+
+.bg-violet{
+  background: $blue-violet;
+}
+
+.bg-black-medium{
+  background: $black-60;
+}
+
+.bg-gray{
+  background: $gallery;
+}
+
+.bg-white{
+  background: $white;
+}
+
+.bg-gazon{
+  // background-image: url('assets/img/gazon-1.jpg');
+  background-size: cover;
+  background-position: bottom right;
+}
+
+.fg-gazon{
+  background: #fff;
+  box-shadow: $shadow-primary;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+// Images
+.section-top{
+  // background-image: url('/assets/img/header-bg.jpg');
+  background-size: cover;
+  background-position: top;
+}
+
+.player-bg {
+  // background: transparent url('assets/img/player_2.png') no-repeat center -90px;
+}
+
+.content-banner{
+  // background-image: url('assets/img/gazon-1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.people-separator{
+  height: 130px;
+  // background: transparent url('assets/img/bg-people.png');
+  background-size: auto 100%;
+  position: relative;
+}
+
+.section-bottom{
+  background-color: $black-rock ;
+  // background-image: url('assets/img/bg-footer.png');
+  background-size: 100% auto;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 653px) {
+  .player-bg {
+    background-size: 100% auto;
+    //background-position: center center;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .people-separator {
+    height: 196px;
+  }
+}
+
+@include media-breakpoint-between(xs, md) {
+  .people-separator:before{
+    content: "";
+    height: 100%;
+    width: 100%;
+    // background: url('assets/img/cup.png') no-repeat center center;
+    position: absolute;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .player-bg {
+    background-position: center -44px;
+  }
+}

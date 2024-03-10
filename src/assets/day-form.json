@@ -1,0 +1,330 @@
+[
+  {
+    "type": "INPUT",
+    "id": "label",
+    "label": "Label",
+    "maxLength": 42,
+    "placeholder": "Label"
+  },
+  {
+    "type": "INPUT",
+    "id": "name_fr",
+    "label": "Name FR",
+    "maxLength": 42,
+    "placeholder": "Name FR"
+  },
+  {
+    "type": "INPUT",
+    "id": "name_nl",
+    "label": "Name NL",
+    "maxLength": 42,
+    "placeholder": "Name NL"
+  },
+  {
+    "type": "INPUT",
+    "id": "name_en",
+    "label": "Name EN",
+    "maxLength": 42,
+    "placeholder": "Name EN"
+  },
+  {
+    "type": "RADIO_GROUP",
+    "id": "with_joker",
+    "label": "With Joker",
+    "maxLength": 42,
+    "placeholder": "",
+    "options": [
+      {
+        "label": "Yes",
+        "value": true
+      },
+      {
+        "label": "No",
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "RADIO_GROUP",
+    "id": "do_ranking_calculation",
+    "label": "Do ranking calculation",
+    "maxLength": 42,
+    "placeholder": "",
+    "options": [
+      {
+        "label": "Yes",
+        "value": true
+      },
+      {
+        "label": "No",
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "RADIO_GROUP",
+    "id": "is_question_score_host",
+    "label": "Include score host question",
+    "maxLength": 42,
+    "placeholder": "",
+    "options": [
+      {
+        "label": "Yes",
+        "value": true
+      },
+      {
+        "label": "No",
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "INPUT",
+    "id": "question_score_host_fr",
+    "label": "Question score host (FR)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "INPUT",
+    "id": "question_score_host_nl",
+    "label": "Question score host (NL)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "INPUT",
+    "id": "question_score_host_en",
+    "label": "Question score host (EN)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "RADIO_GROUP",
+    "id": "is_question_score_visitor",
+    "label": "Include score visitor question",
+    "maxLength": 42,
+    "placeholder": "",
+    "options": [
+      {
+        "label": "Yes",
+        "value": true
+      },
+      {
+        "label": "No",
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "INPUT",
+    "id": "question_score_visitor_fr",
+    "label": "Question score visitor (FR)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "INPUT",
+    "id": "question_score_visitor_nl",
+    "label": "Question score visitor (NL)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "INPUT",
+    "id": "question_score_visitor_en",
+    "label": "Question score visitor (EN)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "RADIO_GROUP",
+    "id": "is_question_player1",
+    "label": "Include player1 question",
+    "maxLength": 42,
+    "placeholder": "",
+    "options": [
+      {
+        "label": "Yes",
+        "value": true
+      },
+      {
+        "label": "No",
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "INPUT",
+    "id": "question_player1_fr",
+    "label": "Question player1 (FR)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "INPUT",
+    "id": "question_player1_nl",
+    "label": "Question player1 (NL)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "INPUT",
+    "id": "question_player1_en",
+    "label": "Question player1 (EN)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "RADIO_GROUP",
+    "id": "is_question_player2",
+    "label": "Include player2 question",
+    "maxLength": 42,
+    "placeholder": "",
+    "options": [
+      {
+        "label": "Yes",
+        "value": true
+      },
+      {
+        "label": "No",
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "INPUT",
+    "id": "question_player2_fr",
+    "label": "Question player2 (FR)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "INPUT",
+    "id": "question_player2_nl",
+    "label": "Question player2 (NL)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "INPUT",
+    "id": "question_player2_en",
+    "label": "Question player2 (EN)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "RADIO_GROUP",
+    "id": "is_question_team1",
+    "label": "Include team1 question",
+    "maxLength": 42,
+    "placeholder": "",
+    "options": [
+      {
+        "label": "Yes",
+        "value": true
+      },
+      {
+        "label": "No",
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "INPUT",
+    "id": "question_team1_fr",
+    "label": "Question team1 (FR)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "INPUT",
+    "id": "question_team1_nl",
+    "label": "Question team1 (NL)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "INPUT",
+    "id": "question_team1_en",
+    "label": "Question team1 (EN)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "RADIO_GROUP",
+    "id": "is_question_team2",
+    "label": "Include team2 question",
+    "maxLength": 42,
+    "placeholder": "",
+    "options": [
+      {
+        "label": "Yes",
+        "value": true
+      },
+      {
+        "label": "No",
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "INPUT",
+    "id": "question_team2_fr",
+    "label": "Question team2 (FR)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "INPUT",
+    "id": "question_team2_nl",
+    "label": "Question team2 (NL)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "INPUT",
+    "id": "question_team2_en",
+    "label": "Question team2 (EN)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "RADIO_GROUP",
+    "id": "is_question_team3",
+    "label": "Include team3 question",
+    "maxLength": 42,
+    "placeholder": "",
+    "options": [
+      {
+        "label": "Yes",
+        "value": true
+      },
+      {
+        "label": "No",
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "INPUT",
+    "id": "question_team3_fr",
+    "label": "Question team3 (FR)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "INPUT",
+    "id": "question_team3_nl",
+    "label": "Question team3 (NL)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  },
+  {
+    "type": "INPUT",
+    "id": "question_team3_en",
+    "label": "Question team3 (EN)",
+    "maxLength": 42,
+    "placeholder": "Insert your question"
+  }
+]

@@ -1,0 +1,26 @@
+<div class="row no-gutters custom-birthday">
+    <div class="col-sm-8 col-lg-5">
+        <div class="row no-gutters">
+            <div class="col day">
+                <select [name]="'birthday_day'" [(ngModel)]="day" (ngModelChange)="onValueChange($event)"
+                        class="custom-select custom-select-lg">
+                    <option *ngFor="let dayOption of days">{{ dayOption }}</option>
+                </select>
+            </div>
+
+            <div class="col month">
+                <select [name]="'birthday_month'" [(ngModel)]="month" (ngModelChange)="onValueChange($event)"
+                        class="custom-select custom-select-lg">
+                    <option *ngFor="let monthOption of months">{{ monthOption }}</option>
+                </select>
+            </div>
+
+            <div class="col year">
+                <select [name]="'birthday_year'" [(ngModel)]="year" (ngModelChange)="onValueChange($event)"
+                        class="custom-select custom-select-lg">
+                    <option *ngFor="let yearOption of years">{{ yearOption }}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>

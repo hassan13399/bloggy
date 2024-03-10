@@ -1,0 +1,35 @@
+<!--<img *ngIf="file && file.path" [src]="file.path">-->
+
+<div class="custom-upload">
+<label class="file-custom-label">Choisir un fichier</label>
+
+<input [attr.accept]="model.accept"
+       [attr.list]="model.listId"
+       [attr.max]="model.max"
+       [attr.min]="model.min"
+       [attr.multiple]="model.multiple"
+       [attr.step]="model.step"
+       [autocomplete]="model.autoComplete"
+       [autofocus]="model.autoFocus"
+       [class.form-control]="model.inputType !== 'file'"
+       [class.form-control-file]="model.inputType === 'file'"
+       [dynamicId]="model.id"
+       [name]="model.name"
+       [pattern]="model.pattern"
+       [placeholder]="model.placeholder"
+       [readonly]="model.readOnly"
+       [required]="model.required"
+       [spellcheck]="model.spellCheck"
+       [tabindex]="model.tabIndex"
+       [textMask]="{mask: (model.mask || false), showMask: model.mask && !(model.placeholder)}"
+       [type]="model.inputType"
+       ng2FileSelect
+       (onFileSelected)="onFileSelected($event)"
+       [uploader]="uploader"
+       class="custom-file-input form-control-file"/>
+
+<div class="file-selected-wrapper">
+    <img *ngIf="file && file.path" [src]="file.path" class="file-selected-image rounded-circle d-inline-block"/>
+    <div class="file-selected-name d-inline-block"></div>
+</div>
+</div>

@@ -1,0 +1,11 @@
+[
+  {
+    "type": "ST_TYPEAHEAD",
+    "id": "m2m",
+    "label": "Name",
+    "maxLength": 42,
+    "placeholder": "Name",
+    "targetModel": "user",
+    "searchField": "name"
+  }
+]

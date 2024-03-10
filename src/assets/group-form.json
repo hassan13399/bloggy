@@ -1,0 +1,9 @@
+[
+  {
+    "type": "INPUT",
+    "id": "name",
+    "label": "Name",
+    "maxLength": 42,
+    "placeholder": "Name"
+  }
+]

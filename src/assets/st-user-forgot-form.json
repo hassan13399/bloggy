@@ -1,0 +1,15 @@
+[
+  {
+    "type": "INPUT",
+    "id": "email",
+    "label": "",
+    "maxLength": 42,
+    "placeholder": "Email",
+    "validators": {
+      "required": null
+    },
+    "errorMessages": {
+      "required": "{{ label }} is required."
+    }
+  }
+]

@@ -1,0 +1,142 @@
+/**
+ * Default Variables.
+ *
+ * Modify this file to provide default Bootstrap Framework variables. The
+ * Bootstrap Framework will not override any variables defined here because it
+ * uses the `` flag which will only set their default if not already
+ * defined here.
+ *
+ * You can copy existing variables directly from the following file:
+ * ./mmw/bootstrap/assets/stylesheets/bootstrap/_variables.scss
+ */
+
+
+// Set the proper directory for the Bootstrap Glyphicon font.
+$icon-font-path: '../bootstrap/assets/fonts/bootstrap/';
+
+
+//
+// Variables
+// --------------------------------------------------
+
+//  Colors
+//
+//
+
+//  Custom Color
+$blue-zodiac: #0e1c4a;
+$blue-turquoise: #04c5fd;
+$blue-chetwode: #93a6dd;
+$blue-bay: #283b7f;
+$blue-astro: #004c62;
+$blue-violet: #200857;
+
+$black-rock: #10042d;
+
+$white-33: rgba(255,255,255,0.33);
+$black-60: rgba(0,0,0,0.6);
+
+$gallery: #ececec;
+$alto: #d8d8d8;
+$silver: #a8a8a8;
+$silver-light: #cccccc;
+$gray: #8f8f8f;
+$tundora: #4a4a4a;
+
+$facebook: #46669e;
+$twitter: #45b5ff;
+
+$success: #66cd22;
+$fail: #f20101;
+$warning: #be0123;
+$warning-bg: rgba(242, 1, 1, 0.12);
+
+//
+// Color system
+//
+$primary:       $blue-turquoise;
+$secondary:     $blue-zodiac;
+$dark:          $black-rock;
+$light: $white-33;
+
+$body-color: $gray;
+
+// Shadows
+$shadow-primary: 0 0 30px 0 rgba(0, 0, 0, 0.07);
+
+//
+// Backgrounds
+//
+
+
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+
+@import url('https://fonts.googleapis.com/css?family=Teko:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+
+$montserrat: 'Montserrat', sans-serif;
+$teko: 'Teko', sans-serif;
+
+// stylelint-disable value-keyword-case
+$font-family-sans-serif:      'Montserrat', Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:            $font-family-sans-serif !default;
+
+$headings-font-family: $teko;
+$headings-font-weight: 400;
+$headings-color: $blue-zodiac;
+
+//Size
+$font-size-base: 0.9rem;
+
+$line-height-base: 2;
+
+$h1-font-size: 50px;
+$h2-font-size: 40px;
+$h3-font-size: 35px;
+$h4-font-size: 30px;
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1200px
+);
+
+// Navbar
+
+$navbar-dark-color:       $blue-turquoise;
+$navbar-dark-toggler-border-color:  $blue-turquoise;
+
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background, and border color.
+
+$btn-padding-y:  12px;
+$btn-font-weight: 700;
+$btn-padding-y-sm: 10px;
+
+// Forms
+
+$input-btn-padding-y:       .6rem;
+$input-btn-padding-y-lg:    1.2rem;
+$input-placeholder-color:   $gray;
+
+// Modals
+
+// Padding applied to the modal body
+
+$modal-md: 442px;
+
+// Tables
+
+$table-bg: #fff;
+$table-accent-bg: rgba(32, 8, 88, 0.07);
+$table-dark-bg: $blue-violet;
+$table-dark-border-color: $blue-violet;

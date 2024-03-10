@@ -1,0 +1,25 @@
+/*------------------------------------
+              Table
+-----------------------------------*/
+
+.table {
+  box-shadow: $shadow-primary;
+  th{
+    color: $blue-violet;
+  }
+  th,
+  td {
+    vertical-align: middle;
+  }
+  thead{
+    font-size: 12px;
+    font-weight: 600;
+  }
+  tbody{
+    font-weight: 600;
+  }
+}
+
+.th-info-icon{
+  margin-left: 10px;
+}

@@ -1,0 +1,189 @@
+<app-page-top></app-page-top>
+
+<!--Title-->
+<div class="title pt-3">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <div class="row align-content-center">
+          <div class="col-lg-8">
+            <h1 *ngIf="!isAuthenticated">{{ 'USER.create your account' | translate }}</h1>
+            <h1 *ngIf="isAuthenticated">{{ 'USER.update your account' | translate }}</h1>
+          </div>
+          <div class="w-100 d-lg-none"></div>
+          <div class="col-sm-7 col-md-5 col-lg-4" *ngIf="!isAuthenticated && !hideForm">
+            <a href="#nolink" class="btn facebook btn-block rounded text-white" stPreventDefaultEvent (click)="fbConnect()">
+              <img class="logo-left d-inline-block align-text-bottom" src="assets/img/facebook-logo.png">
+              Se connecter via facebook
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Title-->
+
+<div class="account-creation py-5 bg-gazon">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-10 fg-gazon">
+        <st-form *ngIf="!hideForm" [jsonModel]="jsonModel"
+                 (stAfterFormInit)="onFormInit($event)">
+          <div *ngIf="formGroup" st-form-bottom>
+            <div class="row no-gutters justify-content-end">
+              <div class="col-sm-10">
+                <div class="row no-gutters">
+                  <div class="submit col-md-5">
+            <button class="btn btn-block btn-primary btn-lg" (click)="create()" *ngIf="!isAuthenticated">{{ 'FORM_LABEL.Save' | translate }}</button>
+            <button class="btn btn-block btn-primary btn-lg" (click)="update()" *ngIf="isAuthenticated">{{ 'FORM_LABEL.Save' | translate }}</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </st-form>
+        <p *ngIf="hideForm">{{ 'USER.afterSignupText' | translate }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Account creation-->
+<!--<div class="account-creation py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+
+        <div class="form-group row no-gutters">
+          <label for="pseudo" class="col-sm-4 col-form-label col-form-label-lg">Pseudo :</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control form-control-lg" id="pseudo">
+          </div>
+        </div>
+        <div class="form-group row no-gutters">
+          <label for="nom" class="col-sm-4 col-form-label col-form-label-lg">Nom :</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control form-control-lg" id="nom">
+          </div>
+        </div>
+        <div class="form-group row no-gutters">
+          <label for="prenom" class="col-sm-4 col-form-label col-form-label-lg">Prénom :</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control form-control-lg" id="prenom">
+          </div>
+        </div>
+        <div class="form-group row no-gutters">
+          <label for="AdresseEmail" class="col-sm-4 col-form-label col-form-label-lg">Adresse e-mail :</label>
+          <div class="col-sm-8">
+            <input type="email" class="form-control form-control-lg" id="AdresseEmail">
+          </div>
+        </div>
+        <div class="form-group row no-gutters no-gutters">
+          <label class="col-sm-4 col-form-label col-form-label-lg">Date de naissance :</label>
+          <div class="col-sm-8 col-lg-5">
+            <div class="row no-gutters">
+              <div class="col day">
+                <select class="custom-select custom-select-lg" id="day">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                </select>
+              </div>
+              <div class="col month">
+                <select class="custom-select custom-select-lg" id="month">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                </select>
+              </div>
+              <div class="col year">
+                <select class="custom-select custom-select-lg" id="year">
+                  <option>1986</option>
+                  <option>1987</option>
+                  <option>1988</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row no-gutters">
+          <label for="pays" class="col-sm-4 col-form-label col-form-label-lg">Pays :</label>
+          <div class="col-sm-8">
+            <select class="custom-select custom-select-lg" id="pays">
+              <option>Belgique</option>
+              <option>Angleterre</option>
+              <option>Espagne</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row no-gutters">
+          <label for="supporterDe" class="col-sm-4 col-form-label col-form-label-lg">Supporter de :</label>
+          <div class="col-sm-8">
+            <select class="custom-select custom-select-lg" id="supporterDe">
+              <option>Standard</option>
+              <option>Anderlecht</option>
+              <option>Charleroi</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row no-gutters">
+          <label for="photoDeProfil" class="col-sm-4 col-form-label col-form-label-lg">Photo de profil
+            :</label>
+          <div class="col-sm-8">
+            <input type="file" class="custom-file-input form-control-file" id="photoDeProfil">
+            <label class="file-custom-label">Choisir un fichier</label>
+            <div class="file-selected-wrapper">
+              <img class="file-selected-image rounded-circle d-inline-block" src="#"/>
+              <div class="file-selected-name d-inline-block"></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row no-gutters">
+          <label for="motDePasse" class="col-sm-4 col-form-label col-form-label-lg">Mot de passe :</label>
+          <div class="col-sm-8">
+            <input type="password" class="form-control form-control-lg" id="motDePasse">
+
+          </div>
+        </div>
+        <div class="form-group row no-gutters">
+          <label for="confirmationMotDePasse" class="col-sm-4 col-form-label col-form-label-lg">Confirmation
+            mot de
+            passe :</label>
+          <div class="col-sm-8">
+            <input type="password" class="form-control form-control-lg" id="confirmationMotDePasse">
+          </div>
+        </div>
+        <div class="form-group row no-gutters justify-content-end">
+          <div class="col-sm-8">
+            <div class="custom-control custom-checkbox">
+              <input class="custom-control-input" type="checkbox" id="conditions">
+              <label class="custom-control-label" for="conditions">
+                J'ai lu et accepté <a href="#nolink" target="_blank">le règlement et les conditions
+                générales d'utilisation</a>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row no-gutters justify-content-end">
+          <div class="col-sm-8">
+            <div class="g-recaptcha" data-sitekey="6Ldp-lAUAAAAAEBeY9VSaNKIpwAIzT67w6C2QnCD"></div>
+          </div>
+        </div>
+        <div class="row no-gutters justify-content-end">
+          <div class="col-sm-8">
+            <div class="row no-gutters">
+              <div class="submit col-md-5">
+                <button class="btn btn-block btn-primary btn-lg" type="submit">Créer un compte</button>
+              </div>
+              <div class="cancel col-md-5">
+                <button class="btn btn-block btn-cancel btn-lg" type="cancel">Annuler</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+<!--End Account creation-->

@@ -1,0 +1,31 @@
+//
+// Typography
+// --------------------------------------------------
+
+html,
+html a {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.text-white{
+  h1,h2,h3,h4,h5,h6,a{
+    color: #fff;
+  }
+}
+
+.text-turquoise{
+  color: $blue-turquoise;
+}
+
+.text-zodiac{
+  color: $blue-zodiac;
+}
+
+.text-violet{
+  color: $blue-violet;
+}
+
+p:last-child{
+  margin-bottom: 0;
+}

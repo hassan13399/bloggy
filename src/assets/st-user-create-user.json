@@ -1,0 +1,173 @@
+[
+  {
+    "type": "INPUT",
+    "id": "pseudo",
+    "label": "Pseudo",
+    "maxLength": 42,
+    "placeholder": "",
+    "validators": {
+      "required": null
+    },
+    "errorMessages": {
+      "required": "field required"
+    }
+  },
+  {
+    "type": "INPUT",
+    "id": "firstname",
+    "label": "Firstname",
+    "maxLength": 42,
+    "placeholder": "",
+    "validators": {
+      "required": null
+    },
+    "errorMessages": {
+      "required": "field required"
+    }
+  },
+  {
+    "type": "INPUT",
+    "id": "name",
+    "label": "Name",
+    "maxLength": 42,
+    "placeholder": "",
+    "validators": {
+      "required": null
+    },
+    "errorMessages": {
+      "required": "field required"
+    }
+  },
+  {
+    "type": "INPUT",
+    "id": "email",
+    "label": "Email",
+    "maxLength": 42,
+    "placeholder": "",
+    "validators": {
+      "required": null,
+      "email": null
+    },
+    "errorMessages": {
+      "required": "field required",
+      "email": "Invalid email"
+    }
+  },
+  {
+    "type": "SELECT",
+    "id": "gender",
+    "label": "Gender",
+    "options": [
+      {
+        "label": "Homme",
+        "value": "M"
+      },
+      {
+        "label": "Femme",
+        "value": "F"
+      }
+    ]
+  },
+  {
+    "type": "SELECT",
+    "id": "lang",
+    "label": "Language",
+    "placeholder": "",
+    "options": [
+      {
+        "label": "FR",
+        "value": "fr"
+      },
+      {
+        "label": "NL",
+        "value": "nl"
+      },
+      {
+        "label": "EN",
+        "value": "en"
+      }
+    ]
+  },
+  {
+    "type": "ST_BIRTHDAY",
+    "id": "birthdate",
+    "label": "Birthdate",
+    "validators": {
+      "required": null
+    },
+    "errorMessages": {
+      "required": "field required"
+    }
+  },
+  {
+    "type": "SELECT",
+    "id": "country",
+    "label": "Country",
+    "maxLength": 42,
+    "placeholder": "",
+    "targetModel" : "country",
+    "targetField" : "name_fr"
+  },
+  {
+    "type": "SELECT",
+    "id": "team_id",
+    "label": "Supporter of",
+    "maxLength": 42,
+    "placeholder": "Select a team",
+    "remoteAddress" : "data/{{lang}}/teams"
+  },
+  {
+    "type": "ST_IMAGE_UPLOAD",
+    "inputType": "file",
+    "id": "photo",
+    "label": "Photo"
+  },
+  {
+    "type": "INPUT",
+    "inputType": "password",
+    "id": "password",
+    "label": "Password",
+    "maxLength": 42,
+    "placeholder": "Password"
+  },
+  {
+    "type": "INPUT",
+    "inputType": "password",
+    "id": "password_repeat",
+    "label": "Repeat Password",
+    "maxLength": 42,
+    "placeholder": "Password",
+    "validators_inactive": {
+      "stPasswordValidator": {
+        "name": "stPasswordValidator",
+        "args": null
+      }
+    }
+  },
+  {
+    "type": "CHECKBOX",
+    "id": "accept_condition",
+    "label": "accept_condition",
+    "required": true,
+    "maxLength": 42,
+    "validators": {
+      "required": null
+    },
+    "errorMessages": {
+      "required": "field required"
+    }
+  },
+  {
+    "type": "CHECKBOX",
+    "id": "gdpr_ok",
+    "label": "gdpr_ok",
+    "required": true,
+    "maxLength": 42,
+    "validators": {
+      "required": null
+    },
+    "errorMessages": {
+      "required": "field required"
+    }
+  }
+]

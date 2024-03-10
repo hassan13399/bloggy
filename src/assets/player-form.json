@@ -1,0 +1,15 @@
+[
+  {
+    "type": "INPUT",
+    "id": "name",
+    "label": "Name",
+    "maxLength": 42,
+    "placeholder": "Name"
+  },
+  {
+    "type": "ST_IMAGE_UPLOAD",
+    "inputType": "file",
+    "id": "photo",
+    "label": "File"
+  }
+]

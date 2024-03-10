@@ -1,0 +1,33 @@
+/*------------------------------------
+              Table
+-----------------------------------*/
+
+.table {
+  box-shadow: $shadow-primary;
+  margin-bottom: 0;
+  th,
+  td {
+    vertical-align: middle;
+  }
+  thead{
+    font-size: 12px;
+    font-weight: 600;
+  }
+  tbody{
+    font-weight: 600;
+  }
+}
+
+.th-info-icon{
+  margin-left: 10px;
+}
+
+.table-responsive{
+    background: #fff; // IOS Fix
+}
+
+@include media-breakpoint-down(sm){
+  .table-responsive{
+    overflow-x: scroll; // IOS Fix
+  }
+}

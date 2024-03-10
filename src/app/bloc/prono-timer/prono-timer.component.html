@@ -1,0 +1,4 @@
+<p *ngIf="showTimer" class="text-right timer text-danger font-weight-bold">
+    <span class="minutes">{{pad(minutes)}}</span> : <span class="seconds">{{pad(seconds)}}</span>
+    <span class="btn btn-danger btn-xs" (click)="end()">STOP !</span>
+</p>

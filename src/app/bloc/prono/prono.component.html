@@ -1,0 +1,301 @@
+<div class="prologue-wrapper rounded bg-white p-5" *ngIf="day === 'prologue'">
+  <app-flash [destination] = "'prono'"></app-flash>
+  <div class="row">
+    <div class="col-sm-5 text-turquoise prologue__points text-sm-left" *ngIf="prono_points != null">
+      {{prono_points}} {{'LABEL.__Points' | translate}}
+    </div>
+  </div>
+  <form [formGroup]="formGroup" *ngIf="formGroup">
+  <div class="butteur pb-4">
+    <h3 class="text-uppercase">1. {{ 'LABEL.__Choisissez un buteur' | translate }}</h3>
+    <p>{{ 'LABEL.__A chaque but marqué par ce joueur durant la compétition, vous gagnez 8 points' | translate }}</p>
+    <div class="form-group row">
+      <div class="col-sm-5">
+        <select class="custom-select custom-select-lg" formControlName="player1_id">
+          <option *ngFor="let player of players"
+                  [ngValue]="player.value">{{ player.label }}</option>
+        </select>
+      </div>
+      <!--
+      <div class="col-sm-5 text-turquoise prologue__points text-center text-sm-left" *ngIf="prono_points != null">
+        {{prono_points}} {{'LABEL.__Points' | translate}}
+      </div>
+      -->
+    </div>
+  </div>
+  <div class="finale pb-4">
+    <h3 class="text-uppercase">2. {{ 'LABEL.__Pronostiquez la finale' | translate }}</h3>
+    <p>{{ 'LABEL.__Par équipe correctement annoncée, vous marquerez 20 points' | translate }}</p>
+    <div class="form-group row">
+      <div class="col-sm-5 pb-2 pb-sm-0">
+        <select class="custom-select custom-select-lg" formControlName="team1_id">
+          <option *ngFor="let team of teams"
+                  [ngValue]="team.value">{{ team.label }}</option>
+        </select>
+      </div>
+      <div class="col-sm-5">
+        <select class="custom-select custom-select-lg" formControlName="team2_id">
+          <option *ngFor="let team of teams"
+                  [ngValue]="team.value">{{ team.label }}</option>
+        </select>
+      </div>
+      <div class="col-sm-2 text-turquoise prologue__points text-center text-sm-left">
+        <!--999-->
+      </div>
+    </div>
+  </div>
+  <div class="vainqueur pb-4">
+    <h4 class="text-uppercase">{{ 'LABEL.__Vainqeur de la finale' | translate }} :</h4>
+    <p>{{ 'LABEL.__Le bon vainqueur correctement annoncé rapport 40 points' | translate }}</p>
+    <div class="form-group row">
+      <div class="col-sm-5">
+        <select class="custom-select custom-select-lg" formControlName="team3_id">
+          <option *ngFor="let team of teams"
+                  [ngValue]="team.value">{{ team.label }}</option>
+        </select>
+      </div>
+      <div class="col-sm-5 text-turquoise prologue__points text-center text-sm-left">
+        <!--999-->
+      </div>
+    </div>
+    <!--<p>{{ 'LABEL.__Date du dernier pronostic : Vous n avez pas encore fait vos pronostics' | translate }}</p>-->
+  </div>
+  <div class="row no-gutters">
+    <div class="submit col-md-5">
+      <button class="btn btn-block btn-primary btn-lg" type="submit" (click)="saveProno('prologue')" *ngIf="isMyProno && (status === 'open')">{{ 'LABEL.__Sauvegarder votre pronostic' | translate }}</button>
+    </div>
+  </div>
+  </form>
+</div>
+
+
+<!--Match result With affiche MODE: show -->
+<div class="match match--result {{class_multiplier}} {{pronoWithJokerClass}} {{prono_joker_ok_class}} {{result_score_ok_class}}"
+     *ngIf="mode === 'show' && day !== 'prologue'">
+  <!--Affiche-->
+  <div class="match__affiche" *ngIf="multiplier">
+    X{{multiplier}}
+  </div>
+  <!--End Affiche-->
+  <div class="row justify-content-center no-gutters">
+
+    <!--Match Result left-->
+    <div class="match__left {{class_result}}">
+
+      <!--Match content top-->
+      <div class="match__content-top">
+        <div class="row no-gutters">
+          <!--Date-->
+          <div class="match__date text-center col-md-6">
+            {{'LABEL.__Match du' | translate}} {{start_time | date:'dd.MM.yyyy'}} {{'LABEL.__à' | translate}} {{start_time | date:'HH:mm'}}
+          </div>
+          <!--End date-->
+
+          <!--Result-->
+          <div class="match__result text-center col-md-6" *ngIf="status == 'calculated'">
+            {{'LABEL.__Résultat final' | translate}}: <span class="coloured">{{host_team}} {{result_score_host}} - {{result_score_visitor}} {{visitor_team}}</span>
+          </div>
+          <!--End Result-->
+        </div>
+      </div>
+      <!--End Match content top-->
+
+      <!--Match content-->
+      <div class="match__content">
+        <div class="row align-content-center no-gutters">
+
+          <!--Country left-->
+          <div class="match__content--item match__country text-center col-3 col-md-4">
+            <div class="row align-content-center no-gutters">
+              <div class="col-lg-6">
+                <img *ngIf="host_team_flag" class="match__country__flag rounded-circle"
+                     src="{{host_team_flag}}">
+              </div>
+              <div class="col-lg-6">
+                <div class="match__country__name">{{host_team}}</div>
+              </div>
+            </div>
+          </div>
+          <!--End Country left-->
+
+          <!--Score-->
+          <div class="match__content--item match__score text-center col">
+            <div class="match__score-item d-inline-block">
+              {{prono_score_host}}
+            </div>
+            <div class="match__form__vs match__form__vs--score d-inline-block align-middle">
+              VS
+            </div>
+            <div class="match__score-item d-inline-block">
+              {{prono_score_visitor}}
+            </div>
+          </div>
+          <!--End Score-->
+
+          <!--Right Country-->
+          <div class="match__content--item match__country text-center col-3 col-md-4">
+            <div class="row align-content-center no-gutters">
+              <div class="col-lg-6 order-lg-2">
+                <img *ngIf="visitor_team_flag" class="match__country__flag rounded-circle align-middle"
+                     src="{{visitor_team_flag}}">
+              </div>
+              <div class="col-lg-6 order-lg-1">
+                <div class="match__country__name">{{visitor_team}}</div>
+              </div>
+            </div>
+          </div>
+          <!--End Right Country-->
+
+          <div class="w-100"></div>
+
+          <!--Half time-->
+          <div class="match__half-time text-center w-100">
+            {{ bonusLabel | translate}} : <span class="{{prono_team1_ok_class}}">{{result_team1_name}}</span>
+          </div>
+          <!--End Half time-->
+
+          <div class="w-100"></div>
+
+          <div class="match__edit text-center w-100">
+            <button class="btn btn-primary btn-sm" (click)="edit()" *ngIf="isMyProno && (status === 'open')">{{'LABEL.__Modifier votre pronostic' | translate}}</button>
+          </div>
+
+
+        </div>
+      </div>
+      <!--Match content-->
+    </div>
+    <!--End Match Result left-->
+
+    <!--Match Result right-->
+    <div class="match__right match__points text-center col-sm-3 col-md-2" *ngIf="status === 'calculated'">
+      <div class="match__points__number">{{prono_points}}</div>
+      <div class="match__points__text">{{'LABEL.__Points' | translate}}</div>
+    </div>
+    <!--End Match Result right-->
+  </div>
+</div>
+<!--End Match result-->
+
+<!--Prono Actif MODE: edit-->
+<div class="match match--fill {{class_multiplier}}" *ngIf="mode === 'edit' && day !== 'prologue'">
+  <form [formGroup]="formGroup" *ngIf="formGroup">
+  <!--Affiche-->
+  <div class="match__affiche" *ngIf="multiplier">
+    X{{multiplier}}
+  </div>
+  <!--End Affiche-->
+
+  <!--Date-->
+  <div class="match__date text-center">
+    {{'LABEL.__Match du' | translate}} {{start_time | date:'dd.MM.yyyy'}} {{'LABEL.__à' | translate}} {{start_time | date:'HH:mm'}}
+  </div>
+  <!--End date-->
+
+  <!--Joker-->
+  <div class="form-group form-group--joker" *ngIf="pronoWithJoker && !disableJoker">
+    <div class="radio">
+      <!--<input type="radio" id="customRadio1" name="customRadio"
+             class="custom-control-input">-->
+      <label>
+      <input type="radio" [value]="true" formControlName="joker">
+      Joker X2
+      </label>
+    </div>
+  </div>
+  <!--End Joker-->
+
+  <!--Match content-->
+  <div class="match__content">
+
+    <div class="row align-content-center no-gutters">
+
+      <!--Country left-->
+      <div class="match__content--item match__country text-center col-3 col-md-4">
+        <div class="row align-content-center no-gutters">
+          <div class="col-lg-6">
+            <img *ngIf="host_team_flag" class="match__country__flag rounded-circle"
+                 src="{{host_team_flag}}">
+          </div>
+          <div class="col-lg-6">
+            <div class="match__country__name">{{host_team}}</div>
+          </div>
+        </div>
+      </div>
+      <!--End Country left-->
+
+      <!--Form-->
+      <div class="match__content--item match__form col">
+        <!--<form [formGroup]="formGroup" *ngIf="formGroup">-->
+          <!--Score-->
+          <div class="form-group form-group--score text-center">
+            <select class="custom-select d-inline-block align-middle" formControlName="score_host" >
+              <option selected value="">-</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+            <div class="match__form__vs d-none d-sm-inline-block align-middle">
+              VS
+            </div>
+            <select class="custom-select d-inline-block align-middle" formControlName="score_visitor">
+              <option selected value="">-</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <!--End Score-->
+
+          <!--Half time-->
+          <div class="form-group form-group--half-time text-center">
+            <select class="custom-select text-center" formControlName="team1_id">
+              <option *ngFor="let option of halftimeOptions"
+                      [ngValue]="option.value">{{ option.label | translate }} {{ option.suffix | translate }}</option>
+            </select>
+          </div>
+          <!--End Half time-->
+        <div class="match__edit text-center" *ngIf="isMyProno">
+            <button class="btn btn-primary btn-sm" (click)="saveProno()">{{'LABEL.__Sauvegarder votre pronostic' | translate}}</button>
+        </div>
+        <!--</form>-->
+
+      </div>
+      <!--End Form-->
+
+      <!--Right Country-->
+      <div class="match__content--item match__country text-center col-3 col-md-4">
+        <div class="row align-content-center no-gutters">
+          <div class="col-lg-6 order-lg-2">
+            <img *ngIf="visitor_team_flag" class="match__country__flag rounded-circle align-middle"
+                 src="{{visitor_team_flag}}">
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="match__country__name">{{visitor_team}}</div>
+          </div>
+        </div>
+      </div>
+      <!--End Right Country-->
+    </div>
+
+  </div>
+  <!--End Match content-->
+  </form>
+</div>
+<!--End Match Form-->

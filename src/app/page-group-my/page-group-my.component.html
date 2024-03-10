@@ -1,0 +1,152 @@
+<app-page-top></app-page-top>
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">{{'TIMER.modal_title'|translate}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p *ngIf="remainingTime > 0" [translate]="'TIMER.time_remaining_confirmation'"
+           [translateParams]="{ time: formatTimer(remainingTime) }"
+        ></p>
+        <p *ngIf="remainingTime <= 0" [translate]="'TIMER.no_more_time'">
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a (click)="goToProno(selectedUser, true)" class="btn btn-primary" *ngIf="selectedUser && remainingTime > 0">{{"TIMER.Voir les pronostics"|translate}}</a>
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">{{"TIMER.close_modal"|translate}}</button>
+    </div>
+</ng-template>
+
+<!--Title-->
+<div class="title py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                <h1 class="d-inline">{{'MENU.__Mes concours' | translate}}</h1>
+                <div class="d-md-inline ml-md-4 mt-4 mt-md-0 classement-form" *ngIf="hasGroup">
+                    <form class="d-inline" [formGroup]="formGroup">
+                        <select class="group-select custom-select text-center" formControlName="group">
+                            <option *ngFor="let group of groups" [ngValue]="group.value">
+                                {{ group.label }}
+                            </option>
+                        </select>
+                    </form>
+                    <p class="d-block d-sm-inline ml-sm-4 mt-2">
+                    <a *ngIf="hideDescription" stPreventDefaultEvent (click)="setHideDescription(false)" href="#nolink">{{'LABEL.my_league_show_description' | translate}}</a>
+                    <a *ngIf="!hideDescription" stPreventDefaultEvent (click)="setHideDescription(true)" href="#nolink">{{'LABEL.my_league_hide_description' | translate}}</a>
+                    <a *ngIf="userId === captainId" routerLink="/group/edit/{{groupId}}">{{'LABEL.Manage_this_league' | translate}}</a>
+                        <!--<a *ngIf="userId === captainId" (click)="openDeleteModal()">{{'LABEL.Delete_this_league' | translate}}</a>
+                        <a *ngIf="userId !== captainId" (click)="openLeaveModal()">{{'LABEL.Leave_this_league' | translate}}</a>-->
+                </p>
+                </div>
+                <p *ngIf="!hasGroup">{{'LABEL.__Vous n avez pas encore rejoint de concours' | translate}}</p>
+                <p *ngIf="!hideDescription">{{group.description}}</p>
+                <div class="row no-gutters">
+                    <div class="col-sm-6">
+                        <a *ngIf="!hasGroup" class="btn btn-primary btn-block my-2 rounded-0 text-uppercase"
+                           routerLinkActive="active" routerLink="/group/create">{{ 'MENU.__Créer_un_concours' |
+                            translate }}</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <a *ngIf="!hasGroup" class="btn btn-secondary btn-block my-2 rounded-0 text-uppercase"
+                           routerLinkActive="active" routerLink="/group/join">{{ 'MENU.__Rejoindre_un_concours' |
+                            translate }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Title-->
+
+<!--Classement-->
+<div class="classement-content no-active mt-4 pb-4 bg-gazon" *ngIf="hasGroup">
+    <div class="container">
+        <div class="row justify-content-center no-gutters">
+            <div class="col-xl-10">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th class="text-center">{{'FORM_LABEL.Supporter of' | translate}}</th>
+                            <th>{{'FORM_LABEL.Pseudo' | translate}}
+                                <!--<img src="assets/img/info-th-icon.png" class="th-info-icon" data-container="body"
+                                     data-toggle="popover"
+                                     data-placement="top" data-trigger="hover" data-content="Informations Pseudo.">--></th>
+                            <th>{{'LABEL.__Concours' | translate}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let user of users">
+                            <td class="text-center"><img *ngIf="user.team" class="classement__country__flag rounded-circle"
+                                                         src="{{user.team.flag | stImagePath}}"></td>
+                            <td><img *ngIf="user.photo" class="classement__profile-photo rounded-circle" src="{{user.photo | stImagePath}}">{{user.pseudo}}
+
+                                <span class="d-block d-md-inline float-md-right pl-md-2">
+                                  <a *ngIf="userId !== user.id" class="" (click)="goToProno(user.id)">{{'LABEL.see_prono' | translate}}</a>
+                                  <a *ngIf="userId !== user.id && userId === captainId" class="text-danger" (click)="openKickModal(user.id)">{{'LABEL.remove_from_group' | translate}}</a>
+                                </span>
+                            <td>{{this.groupLabel}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Classement-->
+
+<ng-template #deleteModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">{{'LABEL.Modal_Delete_League_Title'|translate}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p [translate]="'LABEL.Modal_Delete_League_Body'"
+        ></p>
+    </div>
+    <div class="modal-footer">
+        <a (click)="deleteGroup()" class="btn btn-danger">{{"LABEL.Modal_Delete_League_Button"|translate}}</a>
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">{{"LABEL.Modal_Delete_League_Close"|translate}}</button>
+    </div>
+</ng-template>
+
+<ng-template #leaveModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">{{'LABEL.Modal_Leave_League_Title'|translate}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p [translate]="'LABEL.Modal_Leave_League_Body'"
+        ></p>
+    </div>
+    <div class="modal-footer">
+        <a (click)="leaveGroup()" class="btn btn-danger">{{"LABEL.Modal_Leave_League_Button"|translate}}</a>
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">{{"LABEL.Modal_Leave_League_Close"|translate}}</button>
+    </div>
+</ng-template>
+
+<ng-template #kickModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">{{'LABEL.Modal_Kick_League_Title'|translate}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p [translate]="'LABEL.Modal_Kick_League_Body'"
+        ></p>
+    </div>
+    <div class="modal-footer">
+        <a (click)="kickUserFromGroup()" class="btn btn-danger">{{"LABEL.Modal_Kick_League_Button"|translate}}</a>
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">{{"LABEL.Modal_Kick_League_Close"|translate}}</button>
+    </div>
+</ng-template>

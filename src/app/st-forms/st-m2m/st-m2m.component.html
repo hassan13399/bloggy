@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="data-grid-list data-grid-m2m">
+        <div class="row" *ngFor="let item of items let i = index">
+            <div class="col-sm-8">Nom: {{item[searchField]}}</div>
+            <div class="col-sm-4"><button (click)="openModal(modal, i)" class="btn btn-secondary btn-sm">Delete</button></div>
+        </div>
+    </div>
+
+    <h2>New relation</h2>
+    <st-form #m2mStForm
+             [objectModel]="objectModel"
+             [layout]="formLayout">
+        <div st-form-bottom>
+            <button (click)="create()">Add</button>
+        </div>
+    </st-form>
+</div>
+
+<ng-template #modal let-c="close" let-d="dismiss">
+    <st-modal [title]="'Delete Element'"
+              [modalRef] = "modalRef"
+              [cancelLabel] = "'Cancel'"
+              [actionLabel] = "'Delete'"
+              (onActionClick)="deleteFromModal()">
+        <div modal-body>You will delete an element, please confirm</div>
+    </st-modal>
+</ng-template>

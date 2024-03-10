@@ -1,0 +1,41 @@
+/*------------------------------------
+            Day Tabs
+-----------------------------------*/
+
+.days-navigation{
+  .container{
+    padding: 0;
+  }
+}
+
+.days-navigation__link{
+  display: block;
+  font-weight: 700;
+  padding: 10px 15px;
+  color: $body-color;
+  //width: 200px;
+  position: relative;
+  &.active{
+    color: $white;
+    background: $blue-violet;
+    &:after{
+      content:"";
+      height: 16px;
+      width: 34px;
+      position: absolute;
+      background: url('../img/active-down.png');
+      left: 50%;
+      margin-left: -17px;
+      bottom: -7px;
+      z-index: 100;
+    }
+  }
+}
+
+@include media-breakpoint-down(xs){
+  .day-pane{
+    .container{
+      padding: 0;
+    }
+  }
+}

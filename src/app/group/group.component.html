@@ -1,0 +1,12 @@
+<div class="container">
+  <st-data-grid [model]="'group'"
+                [jsonModel]="'group-form'"
+                [stDataGridConfig]="stDataGridConfig" >
+    <div dataGridEditBottom>
+      <h3>Related Users</h3>
+      <st-m2m *ngIf="stDataGridComponent.display ==='edit'"
+              [sourceId]="stDataGridComponent.item.id"
+              [stM2mConfig]="stM2mConfig"></st-m2m>
+    </div>
+  </st-data-grid>
+</div>

@@ -1,0 +1,11 @@
+[
+  {
+    "type": "ST_TYPEAHEAD",
+    "id": "group",
+    "label": "Team",
+    "maxLength": 42,
+    "placeholder": "Team",
+    "targetModel": "group",
+    "searchField": "name"
+  }
+]

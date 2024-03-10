@@ -1,0 +1,23 @@
+[
+  {
+    "type": "INPUT",
+    "id": "name_fr",
+    "label": "Name (FR)",
+    "maxLength": 42,
+    "placeholder": "Name (FR)"
+  },
+  {
+    "type": "INPUT",
+    "id": "name_nl",
+    "label": "Name (NL)",
+    "maxLength": 42,
+    "placeholder": "Name (NL)"
+  },
+  {
+    "type": "INPUT",
+    "id": "name_en",
+    "label": "Name (EN)",
+    "maxLength": 42,
+    "placeholder": "Name (EN)"
+  }
+]

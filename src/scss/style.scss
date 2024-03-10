@@ -1,0 +1,46 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+// Default variables.
+@import "variables";
+
+@import "compass/css3";
+
+//Frame overide
+@import 'module/sudinfo';
+
+// Bootstrap Framework.
+@import '../bootstrap/scss/bootstrap';
+
+// Base
+@import 'base/base';
+@import 'base/typography';
+@import 'base/layout';
+
+//Modules
+@import 'module/header';
+@import 'module/jumbotron';
+@import 'module/background';
+@import 'module/buttons';
+@import 'module/countdown';
+@import 'module/catchers';
+@import 'module/cta';
+@import 'module/news';
+@import 'module/partnership';
+@import 'module/newsletter';
+@import 'module/footer';
+@import 'module/modal';
+@import 'module/content-banner';
+@import 'module/phase-tabs';
+@import 'module/day-tabs';
+@import 'module/score-slide';
+@import 'module/score-summary';
+@import 'module/form';
+@import 'module/match';
+@import 'module/blocks';
+@import 'module/classement';
+@import 'module/table';
+@import 'module/pagination';
+

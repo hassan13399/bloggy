@@ -1,0 +1,31 @@
+/*------------------------------------
+            Layout
+-----------------------------------*/
+
+.separator {
+  display: block;
+  width: 32px;
+  height: 4px;
+  margin: 15px auto 15px;
+  background-color: $blue-turquoise;
+  position: relative;
+  @include border-radius(2px);
+}
+
+.panel{
+  padding: 25px 90px;
+  box-shadow: $shadow-primary;
+  border-radius: 6px;
+}
+
+[data-toggle="popover"]{
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+@include media-breakpoint-down(sm){
+  .panel{
+    padding: 15px;
+  }
+}

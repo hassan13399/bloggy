@@ -1,0 +1,57 @@
+[
+  {
+    "type": "INPUT",
+    "id": "score_host",
+    "label": "Score Host",
+    "maxLength": 2,
+    "placeholder": ""
+  },
+  {
+    "type": "INPUT",
+    "id": "score_visitor",
+    "label": "Score Visitor",
+    "maxLength": 2,
+    "placeholder": ""
+  },
+  {
+    "type": "INPUT",
+    "id": "player1_id",
+    "label": "Player1 Id",
+    "maxLength": 3,
+    "placeholder": ""
+  },
+  {
+    "type": "INPUT",
+    "id": "team1_id",
+    "label": "Team1 Id",
+    "maxLength": 3,
+    "placeholder": ""
+  },
+  {
+    "type": "INPUT",
+    "id": "team2_id",
+    "label": "Team2 Id",
+    "maxLength": 3,
+    "placeholder": ""
+  },
+  {
+    "type": "INPUT",
+    "id": "team3_id",
+    "label": "Team3 Id",
+    "maxLength": 3,
+    "placeholder": ""
+  },
+  {
+    "type": "RADIO_GROUP",
+    "id": "joker",
+    "label": "Joker",
+    "maxLength": 2,
+    "placeholder": "",
+    "options": [
+      {
+        "label": "Yes",
+        "value": true
+      }
+    ]
+  }
+]

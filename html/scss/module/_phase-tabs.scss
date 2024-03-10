@@ -1,0 +1,80 @@
+/*------------------------------------
+            Phase Tabs
+-----------------------------------*/
+
+.phase-navigation__tabs{
+  list-style: none;
+}
+
+.phase-navigation__link{
+  background: $blue-turquoise;
+  display: block;
+  padding: 10px 5px;
+  font-family: $teko;
+  font-size: 25px;
+  color: $blue-astro;
+  @include border-top-radius(3px);
+  @include transition-property(background);
+  @include transition-duration(0.3s);
+  height: 100%;
+  .tab-number{
+    display: inline-block;
+    font-size: 20px;
+    padding: 3px 12px 0;
+    margin-right: 5px;
+    background-image: url('../img/shape-inactive-tab.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: white;
+  }
+  .tab-info-icon{
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    background: url('../img/info-disabled-tab.png');
+    margin-left: 5px;
+  }
+  &.active{
+    background: $white;
+    color: $tundora;
+    border-top: 8px solid $white;
+    margin-top: -8px;
+    @include border-top-radius(3px);
+    height: auto;
+    .tab-number{
+      background-image: url('../img/shape-active-tab.png');
+    }
+    .tab-info-icon{
+      background: url('../img/info-active-tab.png');
+    }
+    &:hover{
+      text-decoration: none;
+      background: $white;
+      color: $tundora;
+    }
+  }
+  &:hover{
+    text-decoration: none;
+    background: lighten($blue-turquoise, 15%);
+    color: $blue-astro;
+  }
+}
+
+@include media-breakpoint-only(sm){
+  .phase-navigation__link{
+    font-size: 18px;
+  }
+}
+
+@include media-breakpoint-only(xs){
+  .phase-navigation__tabs{
+    margin: 0 -15px;
+  }
+  .phase-navigation__link{
+    font-size: 15px;
+    padding: 5px 0;
+    .tab-number{
+      display: block;
+    }
+  }
+}

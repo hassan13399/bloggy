@@ -1,0 +1,82 @@
+<header class="header py-1 py-sm-2">
+  <div class="container">
+    <div class="row align-items-center no-gutters">
+      <div class="col-3 col-sm-6 col-lg-2">
+        <div class="header__logo text-center text-sm-left">
+          <a routerLink="/">
+            <img class="header__logo-img" src="assets/img/logo.png">
+            <span class="header__logo-name text-uppercase d-none d-md-inline-block">Bloggyfoot</span>
+          </a>
+        </div>
+      </div>
+      <div class="col-4 col-sm-4 col-lg-1 order-lg-12">
+        <div class="header__profile float-left float-sm-right">
+          <a routerLink="/user/profile">
+            <img class="header__profile-photo rounded-circle" src="{{userPhoto}}" *ngIf="userPhoto">
+          </a>
+          <!--<div class="header__profile-notification rounded-circle text-center">1</div>-->
+        </div>
+      </div>
+      <div class="col-5 col-sm-2 text-right d-lg-none navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarToggler"
+                aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="col-lg-9 order-lg-1">
+        <div class="header__menu">
+          <nav class="navbar-expand-lg navbar-dark">
+            <!--<button class="navbar-toggler" type="button" data-toggle="collapse"-->
+            <!--data-target="#navbarToggler"-->
+            <!--aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">-->
+            <!--<span class="navbar-toggler-icon"></span>-->
+            <!--</button>-->
+            <div class="collapse navbar-collapse" id="navbarToggler">
+              <div class="nav d-sm-flex d-block justify-content-between">
+                <a class="p-2 p-lg-1" routerLinkActive="active" routerLink="/planet">{{ 'MENU.__Planète Bloggyfoot' | translate }}</a>
+                <a class="p-2 p-lg-1" routerLinkActive="active" routerLink="/prono" *ngIf="isAuthenticated">{{ 'MENU.__Pronostics' | translate }}</a>
+                <a class="p-2 p-lg-1" routerLinkActive="active" routerLink="/group/my-active" *ngIf="isAuthenticated">{{ 'MENU.__Mes concours' | translate }}</a>
+                <a class="p-2 p-lg-1" routerLinkActive="active" routerLink="/general" *ngIf="isAuthenticated && !contestHasStarted()">{{ 'MENU.__Général' | translate }}</a>
+                <a class="p-2 p-lg-1" routerLinkActive="active" routerLink="/general-active" *ngIf="isAuthenticated && contestHasStarted()">{{ 'MENU.__Général' | translate }}</a>
+                <a class="p-2 p-lg-1" routerLinkActive="active" routerLink="/hint" *ngIf="isAuthenticated">{{ 'MENU.__Astuces' | translate }}</a>
+                <a class="p-2 p-lg-1" routerLinkActive="active" routerLink="/formules" *ngIf="isAuthenticated">{{ 'MENU.__Partenaires' | translate }}</a>
+                <a class="p-2 p-lg-1" routerLinkActive="active" routerLink="/group/create" *ngIf="isAuthenticated">{{ 'MENU.__Créer_un_concours' | translate }}</a>
+                <a class="p-2 p-lg-1" routerLinkActive="active" routerLink="/group/join" *ngIf="isAuthenticated">{{ 'MENU.__Rejoindre_un_concours' | translate }}</a>
+                <a class="p-2 p-lg-1" routerLinkActive="active" routerLink="/group/invite" *ngIf="isAuthenticated">{{ 'MENU.__Inviter_des_amis' | translate }}</a>
+                <a class="p-2 p-lg-1 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{activeLg}}
+                </a>
+                <div class="dropdown-menu p-2 p-lg-1" aria-labelledby="dropdownMenuLink">
+                  <a class="p-2 p-lg-1 d-block" href="#nolink" stPreventDefaultEvent (click)="switchLanguage(lg)" *ngFor="let lg of lgs">{{lg}}</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="text-center">
+    <div class="modal-wrapper px-sm-5 pb-sm-5">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <img class="modal-logo" src="assets/img/logo-modal.png">
+      <h3 class="modal-title text-uppercase" id="loginModalTitle">Login bloggyfoot</h3>
+      <div class="separator"></div>
+      <a href="#nolink" class="btn facebook btn-block rounded my-4 text-white" stPreventDefaultEvent (click)="fbConnect()">
+        <img class="logo-left d-inline-block align-text-bottom" src="assets/img/facebook-logo.png">
+        {{ 'USER.login' | translate }} via facebook
+      </a>
+      <app-flash [destination]="'feedback'"></app-flash>
+      <st-login
+              (stAfterForgotPassword)="afterForgotPassword($event)"
+              (stAfterCreateAccount)="afterCreateAccount($event)"
+              (stAfterLogin)="afterSignin($event)"></st-login>
+    </div>
+  </div>
+</ng-template>

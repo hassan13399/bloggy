@@ -1,0 +1,335 @@
+
+//Prologue
+.prologue-wrapper {
+  box-shadow: $shadow-primary;
+}
+
+.prologue__points{
+  // padding: 0.75rem;
+  font-size: 26px;
+  font-family: $teko;
+}
+
+.topProno {
+  a {
+    color: $blue-turquoise;
+  }
+}
+
+// Group menu
+.league-menu{
+  font-weight: bold;
+  a{
+    padding: 0 5px;
+    border-right: 1px solid $blue-turquoise;
+    &:first-child{
+      padding-left: 0;
+    }
+    &:last-child{
+      margin-right: 0;
+      padding-right: 0;
+      border-right: none;
+    }
+  }
+}
+
+//Sudinfo Style
+
+$Monza: #BE0123;
+
+body.sudinfo {
+  font-family: $roboto !important;
+}
+
+.sudinfo {
+
+  .header__profile-notification {
+    background: $Monza;
+  }
+  .btn-secondary {
+    background: $Monza;
+    border-color: $Monza;
+    &:hover {
+      background: darken($Monza, 7.5%);
+    }
+  }
+  .header__logo {
+    background: url('/assets/img/logo_sudinfo.png') no-repeat left center;
+    .header__logo-img {
+      opacity: 0;
+
+    }
+  }
+  .cta-player {
+    background-color: $Monza;
+    background-image: url('/assets/img/cta-player-sudinfo.png');
+    background-repeat: no-repeat;
+    background-position: center 36px;
+    min-height: 235px;
+    padding-top: 160px;
+  }
+  .news__teaser {
+    box-shadow: $shadow-secondary;
+    .btn-link.dark {
+      color: $Monza !important;
+      &:hover {
+        color: darken($Monza, 10%) !important;
+      }
+    }
+  }
+  .partnership {
+    .btn-primary {
+      background: $Monza;
+      border-color: $Monza;
+      &:hover {
+        background: darken($Monza, 7.5%);
+      }
+    }
+  }
+  .match__affiche {
+    background: $Monza;
+  }
+  .news__teaser-date {
+    margin-top: -16px;
+    span {
+      font-family: $teko;
+      font-size: 18px;
+      background: $Monza;
+      position: relative;
+      vertical-align: middle;
+      line-height: 1.6;
+      padding: 3px 15px 0;
+      &:before {
+        content: "";
+        position: absolute;
+        left: -12px;
+        bottom: 0;
+        width: 12px;
+        height: 32px;
+        background: none;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        right: -13px;
+        bottom: 0;
+        width: 13px;
+        height: 32px;
+        background: none;
+      }
+    }
+  }
+  .news__teaser-date span {
+    background: $Monza;
+    &:before, &:after {
+      background: none;
+    }
+  }
+
+  .btn-link {
+    &.dark {
+      color: $Monza !important;
+      font-size: 14px;
+      font-weight: 900;
+      text-decoration: underline;
+    }
+  }
+
+  .people-separator {
+    background: transparent url('/assets/img/people_sudinfo.png');
+    background-size: auto 100%;
+  }
+
+  .section-bottom {
+    background-color: #fff !important;
+    background-image: none !important;
+  }
+
+  //Catcher colors
+
+  .catcher__title,
+  .news__title,
+  .partnership__title,
+  .newsletter__title {
+    color: $blue-zodiac !important;
+  }
+
+  .catcher__text,
+  .partnership__text {
+    color: $gray !important;
+  }
+
+  .footer .menu-footer__list a,
+  .footer-bottom span,
+  .footer-bottom a {
+    color: $gray !important;
+  }
+
+  .menu-footer {
+    border-top: 1px solid $gray;
+    border-bottom: 1px solid $gray;
+  }
+
+  .menu-footer__btn {
+    .btn-outline-light {
+      color: $blue-turquoise !important;
+      border-color: $gray !important;
+    }
+  }
+
+  // Font Family
+  .phase-navigation__link,
+  .match__score-item, .match__points__number,
+  .catcher__title,
+  .news__title,
+  .partnership__title,
+  .btn-link,
+  .news__teaser-date span {
+    font-family: $roboto !important;
+  }
+  .header__menu a {
+    font-size: 14px;
+  }
+  .jumbotron__lead {
+    font-weight: normal;
+    font-size: 31px;
+  }
+  h1, h2, h3, h4 {
+    font-family: $roboto !important;
+    font-weight: normal;
+  }
+  .countdown h2 {
+    font-size: 24px;
+    font-weight: normal;
+  }
+  .countdown__number {
+    font-family: $roboto !important;
+    font-weight: bold;
+    font-size: 40px;
+  }
+  .countdown-small__number {
+    font-family: $roboto !important;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 3;
+  }
+  .countdown__unit {
+    font-family: $roboto !important;
+    color: #fff;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  .countdown-small__unit {
+    font-family: $roboto !important;
+    color: #fff;
+    font-weight: 500;
+    font-size: 12px;
+  }
+
+  @include media-breakpoint-up(sm) {
+    .countdown__number {
+      font-size: 86px;
+    }
+    .countdown__unit {
+      font-size: 21px;
+      line-height: 4;
+    }
+  }
+}
+
+// Formules style
+
+.formule__title {
+  margin-bottom: 0;
+  padding: 20px 15px;
+}
+
+.formule {
+  background: $white;
+  ul {
+    padding: 0;
+    margin-bottom: 0;
+    li {
+      padding: 20px 15px;
+      list-style: none;
+      &:nth-child(2n) {
+        background: $althens;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .formules{
+    box-shadow: $shadow-primary;
+  }
+  .formule__title {
+    padding: 45px 15px;
+  }
+  .formule{
+    ul li{
+      padding: 60px 50px;
+      min-height: 180px;
+    }
+  }
+  .formule--gratuite{
+    li{
+      border-right: 1px solid $alto;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .formule{
+    box-shadow: $shadow-primary;
+  }
+}
+
+// Edito
+
+.edito{
+  padding: 15px;
+}
+
+.edito__profile-photo--big,
+.edito__profile-photo--small{
+  display: block;
+  margin: auto;
+}
+
+.edito__main-title,
+.edito__reactions-title,
+.edito__main-name{
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.41;
+}
+
+.edito__reaction-item{
+  padding: 25px;
+  &:nth-child(2n-1){
+    background: $gallery;
+  }
+}
+
+.edito__reaction-name{
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.edito__reaction-date{
+  color: $tundora;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.edito__reaction-comment{
+  font-size: 13px;
+  line-height: 1.77;
+}
+
+@include media-breakpoint-up(sm) {
+  .edito{
+    padding: 35px;
+  }
+}

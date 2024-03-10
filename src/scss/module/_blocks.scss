@@ -1,0 +1,22 @@
+/*------------------------------------
+              Blocks
+-----------------------------------*/
+
+.block-warning{
+  background-color: $warning-bg;
+  background-image: url('/assets/img/info-warning.png');
+  background-repeat: no-repeat;
+  background-position: right 30px top 22px;
+  color: $warning;
+  font-weight: 500;
+  font-size: 17px;
+  border: 1px solid $warning;
+  padding: 27px 100px;
+}
+
+@include media-breakpoint-only(xs){
+  .block-warning{
+    padding: 80px 15px 15px;
+    background-position: center top 20px;
+  }
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "type": "INPUT",
+    "id": "name",
+    "label": "Name",
+    "maxLength": 42,
+    "placeholder": "",
+    "validators": {
+      "required": null
+    },
+    "errorMessages": {
+      "required": "field required"
+    }
+  },
+  {
+    "type": "ST_IMAGE_UPLOAD",
+    "inputType": "file",
+    "id": "photo",
+    "label": "Logo"
+  },
+  {
+    "type": "INPUT",
+    "inputType": "password",
+    "id": "password",
+    "label": "Password",
+    "maxLength": 42,
+    "placeholder": "Password",
+    "validators": {
+      "required": null
+    },
+    "errorMessages": {
+      "required": "field required"
+    }
+  },
+  {
+    "type": "INPUT",
+    "inputType": "password",
+    "id": "password_repeat",
+    "label": "Repeat Password",
+    "maxLength": 42,
+    "placeholder": "Password",
+    "validators": {
+      "required": null
+    },
+    "errorMessages": {
+      "required": "field required"
+    }
+  },
+  {
+    "type": "TEXTAREA",
+    "id": "description",
+    "label": "Description",
+    "maxLength": 1000,
+    "rows": 5,
+    "placeholder": ""
+  }
+]

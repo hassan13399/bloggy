@@ -1,0 +1,81 @@
+/*------------------------------------
+            Bachgrounds
+-----------------------------------*/
+// Colors
+
+.bg-turquoise{
+  background: $blue-turquoise;
+}
+
+.bg-zodiac{
+  background: $blue-zodiac;
+}
+
+.bg-black-medium{
+  background: $black-60;
+}
+
+.bg-gray{
+  background: $gallery;
+}
+
+// Images
+.section-top{
+  background-image: url('../img/header-bg.jpg');
+  background-size: cover;
+  background-position: top;
+}
+
+.player-bg {
+  background: transparent url('../img/player_2.png') no-repeat center -70px;
+}
+
+.content-banner{
+  background-image: url('../img/bg-grass.png');
+  background-size: cover;
+  background-position: top;
+}
+
+.people-separator{
+  height: 130px;
+  background: transparent url('../img/bg-people.png');
+  background-size: auto 100%;
+  position: relative;
+}
+
+.section-bottom{
+  background-color: $black-rock ;
+  background-image: url('../img/bg-footer.png');
+  background-size: 100% auto;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 653px) {
+  .player-bg {
+    background-size: 100% auto;
+    //background-position: center center;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .people-separator {
+    height: 196px;
+  }
+}
+
+@include media-breakpoint-between(xs, md) {
+  .people-separator:before{
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: url('../img/cup.png') no-repeat center center;
+    position: absolute;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .player-bg {
+    background-position: center 102px;
+  }
+}

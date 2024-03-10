@@ -1,0 +1,8 @@
+<st-form [jsonModel]="jsonModel"
+         [layout]="formLayout"
+         (stAfterFormInit)="onFormInit($event)">
+    <div st-form-bottom>
+        <button (click)="save()">Save</button>
+        <button (click)="delete()">Delete</button>
+    </div>
+</st-form>

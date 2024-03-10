@@ -1,0 +1,31 @@
+<pagination-template #p="paginationApi"
+                     id="pagination"
+                     (pageChange)="pageChange.emit($event)"
+                     maxSize="10"
+                     directionLinks="true"
+                     autoHide="true"
+                     previousLabel="Previous"
+                     nextLabel="Next"
+                     screenReaderPaginationLabel="Pagination"
+                     screenReaderPageLabel="page"
+                     screenReaderCurrentLabel="You're on page">
+
+  <nav aria-label="st-pagination">
+    <ul class="pagination">
+      <li class="page-item pagination-previous" [class.disabled]="p.isFirstPage()">
+        <a href="#" stPreventDefaultEvent class="st-click-stop-propagation page-link" *ngIf="!p.isFirstPage()" (click)="p.previous();" > < </a>
+      </li>
+
+      <li class="page-item" *ngFor="let page of p.pages" [class.active]="p.getCurrent() === page.value">
+        <a  href="#" stPreventDefaultEvent class="page-link" (click)="p.setCurrent(page.value)" >
+          {{ page.label }}
+        </a>
+      </li>
+
+      <li class="page-item pagination-next" [class.disabled]="p.isLastPage()">
+        <a href="#" stPreventDefaultEvent *ngIf="!p.isLastPage()" (click)="p.next()"  class="page-link"> > </a>
+      </li>
+    </ul>
+  </nav>
+
+</pagination-template>

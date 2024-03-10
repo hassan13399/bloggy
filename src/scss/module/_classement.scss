@@ -1,0 +1,139 @@
+/*------------------------------------
+            Classement
+-----------------------------------*/
+
+.menu-classement {
+  .row.no-gutters {
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+  }
+}
+
+.podium {
+  margin-top: 31px;
+  box-shadow: $shadow-primary;
+  padding: 40px 25px 10px;
+  position: relative;
+}
+
+.podium__image img{
+  height: 89px;
+  width: 89px;
+}
+
+.podium__name {
+  font-family: $teko;
+  font-size: 21px;
+}
+
+.podium--first {
+  .podium__name {
+    color: $blue-turquoise;
+  }
+  &:before {
+    content: "";
+    width: 135px;
+    height: 94px;
+    background: url('/assets/img/podium-first.png');
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+}
+
+.podium--second {
+   &:before {
+     content: "";
+     width: 135px;
+     height: 99px;
+     background: url('/assets/img/podium-second.png');
+     position: absolute;
+     top: -18px;
+     left: 50%;
+     -moz-transform: translate(-50%, 0);
+     -ms-transform: translate(-50%, 0);
+     -webkit-transform: translate(-50%, 0);
+     transform: translate(-50%, 0);
+   }
+ }
+
+.podium--third {
+  &:before {
+    content: "";
+    width: 135px;
+    height: 97px;
+    background: url('/assets/img/podium-third.png');
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+}
+
+.classement__country__flag,
+.classement__profile-photo {
+  height: 26px;
+  width: 26px;
+}
+
+.classement__profile-photo {
+  margin-right: 15px;
+}
+
+.classement__up,
+.classement__down {
+  display: inline-block;
+  width: 13px;
+  height: 12px;
+}
+
+.classement__up {
+  background: url('/assets/img/up.png');
+}
+
+.classement__down {
+  background: url('/assets/img/down.png');
+}
+
+.classement__points {
+  font-size: 26px;
+  font-family: $teko;
+  color: $blue-turquoise;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+.classement-content.no-active{
+  .table{
+    margin-top: -51px;
+  }
+}
+
+.move-positive, .move-zero, .move-negative {
+  font-size: 11px;
+  color: green;
+  font-weight: normal;
+}
+
+.move-negative {
+  color: red;
+}
+
+@include media-breakpoint-up(md){
+  .podium--first {
+    margin-top: 18px;
+  }
+  .podium--second {
+    margin-top: 31px;
+  }
+  .podium--third {
+    margin-top: 31px;
+  }
+}

@@ -1,0 +1,50 @@
+<!--Section top (with stadium bg)-->
+<div class="section-top">
+  <!--Div only for player on background-->
+  <div class="player-bg">
+    <!-- Header -->
+    <app-main-menu></app-main-menu>
+    <!-- End Header -->
+    <!-- Jumbotron -->
+    <section class="jumbotron text-center">
+      <div class="container">
+        <div class="row  justify-content-center">
+          <div class="col-lg-8 col-xl-6">
+            <h1 class="jumbotron__heading d-none">Bloggyfoot</h1>
+            <p class="jumbotron__lead lead text-uppercase text-white">{{ 'LABEL.__Votre jeu gratuit de pronostics' | translate }}</p>
+            <div class="jumbotron__cta">
+              <div class="row no-gutters" *ngIf="isAuthenticated">
+                <div class="col-sm-6">
+                  <a routerLinkActive="active" routerLink="/group/create" class="btn btn-primary my-2 btn-block rounded-0 text-uppercase">{{ 'MENU.__Créer_un_concours' | translate }}</a>
+                </div>
+                <div class="col-sm-6">
+                  <a routerLinkActive="active" routerLink="/group/join" class="btn btn-secondary my-2 btn-block rounded-0 text-uppercase">{{ 'MENU.__Rejoindre_un_concours' | translate }}</a>
+                </div>
+              </div>
+              <div class="row no-gutters" *ngIf="!isAuthenticated">
+                <div class="col-sm-6">
+                  <a stPreventDefaultEvent (click)="openLogin()" class="btn btn-primary my-2 btn-block rounded-0 text-uppercase">{{ 'USER.login' | translate }}</a>
+                </div>
+                <div class="col-sm-6">
+                  <a routerLinkActive="active" routerLink="/user/profile" class="btn btn-secondary my-2 btn-block rounded-0 text-uppercase">{{ 'USER.create your account' | translate }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Jumbotron -->
+  </div>
+  <!--End div for player background-->
+
+  <!-- Countdown -->
+  <app-countdown [displayType]="'home'"></app-countdown>
+  <!-- End Countdown -->
+
+  <!-- Div only for people bg -->
+  <div class="people-separator"></div>
+  <!-- End div Only for people bg -->
+
+</div>
+<!--End section top (with stadium bg)-->

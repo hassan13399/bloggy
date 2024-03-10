@@ -1,0 +1,130 @@
+/*------------------------------------
+            Form style
+-----------------------------------*/
+
+.custom-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.custom-select-lg{
+  background: url('../img/arrow-select-large.png') no-repeat right 0.75rem center;
+}
+
+.custom-file-input{
+  height: 64px;
+}
+
+.file-custom-label{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 64px;
+  line-height: 4.1;
+  padding: 0 40px 0 70px;
+  background-color: $gallery;
+  background-image: url('../img/download.png');
+  background-position: 20px center;
+  background-repeat: no-repeat;
+  color: $gray;
+  width: auto;
+  text-decoration: underline;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.file-selected-wrapper{
+  padding-top: 10px;
+  display: none;
+  &.active{
+    display: block;
+  }
+}
+
+.file-selected-name{
+  height: 100%;
+  line-height: 4.1;
+  color: $tundora;
+  font-weight: 500;
+}
+
+.file-selected-image{
+  height: 64px;
+  width: 64px;
+  margin-right: 5px;
+}
+
+.account-creation,
+.contest-creation {
+  label {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .day,
+  .month {
+    margin-right: 10px;
+  }
+  .submit {
+    margin-right: 10px;
+  }
+}
+
+.form-control-file {
+  //height: 100%;
+}
+
+.custom-checkbox {
+  padding-left: 2.5rem;
+  .custom-control-input{
+    height: 1.7rem;
+    width: 1.7rem;
+  }
+  .custom-control-label {
+    &:before {
+      border: 1px solid #ced4da;
+      background-color: #fff;
+      height: 1.7rem;
+      width: 1.7rem;
+      top: 0.1rem
+    }
+    &:after{
+      height: 1.7rem;
+      width: 1.7rem;
+      top: 0.1rem
+    }
+  }
+}
+
+@include media-breakpoint-up(lg){
+  .file-selected-wrapper{
+    position: absolute;
+    top: 0;
+    left: 258px;
+    padding-top: 0;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .account-creation,
+  .contest-creation {
+    .submit {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@include media-breakpoint-only(xs){
+  .col-form-label-lg{
+    padding: 10px 0;
+  }
+}
+
+@media(max-width: 330px) {
+  #year{
+    background: url('../img/arrow-select-large.png') no-repeat right 0.2rem center;
+    background-size: 14px;
+    padding-right: 1rem;
+  }
+}

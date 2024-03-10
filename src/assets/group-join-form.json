@@ -1,0 +1,22 @@
+[
+  {
+    "type": "SELECT",
+    "id": "group",
+    "label": "Group",
+    "maxLength": 42,
+    "placeholder": "Select a group",
+    "remoteAddress" : "data/groups",
+    "validators": {
+      "required": null
+    },
+    "errorMessages": {
+      "required": "field required"
+    }
+  },
+  {
+    "type": "INPUT",
+    "inputType": "password",
+    "id": "password",
+    "label": "Code"
+  }
+]

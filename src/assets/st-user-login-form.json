@@ -1,0 +1,23 @@
+[
+  {
+    "type": "INPUT",
+    "id": "email",
+    "label": "",
+    "maxLength": 42,
+    "placeholder": "Email",
+    "validators": {
+      "required": null
+    },
+    "errorMessages": {
+      "required": "This field is required."
+    }
+  },
+  {
+    "type": "INPUT",
+    "id": "password",
+    "inputType": "password",
+    "label": "",
+    "maxLength": 42,
+    "placeholder": "Password"
+  }
+]

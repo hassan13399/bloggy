@@ -1,0 +1,84 @@
+//
+// Buttons
+// --------------------------------------------------
+
+.btn{
+  font-size: 0.9rem;
+  white-space: normal;
+  .logo-right{
+    padding-left: 5px;
+  }
+  .logo-left{
+    padding-right: 10px;
+  }
+  &.facebook{
+    background: $facebook;
+    &:hover{
+      background: darken($facebook, 15%);
+    }
+  }
+  &.twitter{
+    background: $twitter;
+    &:hover{
+      background: darken($twitter, 15%);
+    }
+  }
+}
+
+.btn-secondary-2{
+  color: #fff;
+  background: $blue-violet;
+  &:hover{
+    color: #fff;
+    background: darken($blue-violet, 7.5%);
+  }
+}
+
+.btn-link{
+  font-family: $teko;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 8px 12px;
+  &.dark{
+    color: $black-rock !important;
+  }
+  &.light{
+    color: $blue-turquoise !important;
+  }
+}
+
+.btn-social{
+  padding: 1.1rem 0.75rem;
+}
+
+.btn-cancel{
+  color: $body-color;
+  background: $gallery;
+  &:hover{
+    background: darken($gallery, 7.5%) ;
+  }
+}
+
+.btn-gray{
+  color: $white !important;
+  background: $silver;
+  &:hover{
+    background: darken($silver, 7.5%) ;
+  }
+}
+
+.btn-outline-gray{
+  color: $silver;
+  background: transparent;
+  border: 1px solid $silver;
+  &:hover{
+    background: $silver;
+    color: $white;
+  }
+  &.active{
+    color: #fff;
+    background: $blue-violet;
+    border: 1px solid $blue-violet;
+  }
+}

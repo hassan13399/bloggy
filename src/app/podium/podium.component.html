@@ -1,0 +1,23 @@
+<!--Podium-->
+<div class="podium-content text-center text-uppercase py-4" *ngIf="podium && podium.length && isRanking && isAllowed">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let pod of podium; let index = index;" [ngClass]="{ 'order-md-2': index === 0, 'order-md-1': index === 1, 'order-md-3': index === 2 }">
+            <div class="podium rounded bg-white" [ngClass]="{ 'podium--first': index === 0, 'podium--second': index === 1, 'podium--third': index === 2 }">
+              <div class="podium__image">
+                <img class="rounded-circle" *ngIf="pod.photo" src="{{pod.photo | stImagePath}}">
+                <img class="rounded-circle" *ngIf="!pod.photo" src="/assets/img/avatar_turquoise.png">
+              </div>
+              <div class="podium__name">
+                {{pod.name}} ({{pod.points}})
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Podium-->

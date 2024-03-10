@@ -1,0 +1,47 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+// Default variables.
+@import "scss/variables";
+
+ //@import "compass/css3";
+
+// Bootstrap Framework.
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+// Base
+@import 'scss/base/base';
+@import 'scss/base/typography';
+@import 'scss/base/layout';
+
+//Modules
+
+
+@import 'scss/module/header';
+@import 'scss/module/jumbotron';
+@import 'scss/module/background';
+@import 'scss/module/buttons';
+@import 'scss/module/countdown';
+@import 'scss/module/catchers';
+@import 'scss/module/cta';
+@import 'scss/module/news';
+
+
+@import 'scss/module/partnership';
+@import 'scss/module/newsletter';
+@import 'scss/module/footer';
+@import 'scss/module/modal';
+@import 'scss/module/content-banner';
+@import 'scss/module/phase-tabs';
+@import 'scss/module/day-tabs';
+@import 'scss/module/score-slide';
+@import 'scss/module/score-summary';
+@import 'scss/module/form';
+@import 'scss/module/match';
+@import 'scss/module/blocks';
+@import 'scss/module/classement';
+@import 'scss/module/table';
+@import 'scss/module/pagination';
+

@@ -1,0 +1,18 @@
+<p *ngIf="display==='login'" class="mb-1"><b>{{ 'USER.already registered' | translate }}</b></p>
+<st-form *ngIf="display==='login'" [jsonModel]="jsonLoginModel" (stAfterFormInit)="onFormInit($event)">
+  <div *ngIf="loginFormGroup" st-form-bottom>
+    <p><a class="modal-forgot-link" href="#nolink"  stPreventDefaultEvent (click)="show('forgot')">{{ 'USER.password forgotten' | translate }}</a></p>
+    <button type="button" class="btn btn-primary btn-block" (click)="login()">{{ 'USER.login' | translate }}</button>
+    <p class="mb-1 mt-3"><b>{{ 'USER.not yet registered' | translate }}</b></p>
+    <a class="btn btn-primary btn-block" stPreventDefaultEvent (click)="createAccount()">{{ 'USER.create your account' | translate }}</a>
+  </div>
+</st-form>
+
+<p *ngIf="display==='forgot'" class="mb-1"><b>{{ 'USER.reset your password' | translate }}</b></p>
+<st-form *ngIf="display==='forgot'" [jsonModel]="jsonForgotModel" (stAfterFormInit)="onFormInit($event)">
+  <div *ngIf="forgotFormGroup" st-form-bottom>
+    <button type="button" class="btn btn-primary btn-block" (click)="resetCodePassword()">{{ 'USER.reset password' | translate }}</button>
+  </div>
+</st-form>
+
+<p *ngIf="display==='afterForgot'" class="mb-1"><b>{{ 'USER.resetPasswordMessage' | translate }}</b></p>

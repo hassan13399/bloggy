@@ -1,0 +1,193 @@
+/*------------------------------------
+            Form style
+-----------------------------------*/
+
+.custom-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.custom-select-lg {
+  background: url('/assets/img/arrow-select-large.png') no-repeat right 0.75rem center;
+}
+
+.custom-birthday{
+  margin: -1.2rem 0 -1.2rem;
+}
+
+.custom-file-input {
+  height: 64px;
+  position: absolute;
+  top: 0;
+  z-index: 200;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#photo.ng-dirty {
+  .custom-file-input {
+    opacity: 1;
+    z-index: 100;
+  }
+  .file-custom-label{
+    z-index: 200;
+  }
+}
+
+.file-custom-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 64px;
+  line-height: 4.1;
+  padding: 0 40px 0 70px;
+  background-color: $gallery;
+  background-image: url('/assets/img/download.png');
+  background-position: 20px center;
+  background-repeat: no-repeat;
+  color: $gray;
+  width: auto;
+  text-decoration: underline;
+  font-weight: 600;
+  z-index: 100;
+}
+
+.file-selected-wrapper {
+  padding: 0 10px;
+  background: #fff;
+
+  position: relative;
+  //display: none;
+  //&.active{
+  //  display: block;
+  //}
+}
+
+.file-selected-name {
+  height: 100%;
+  line-height: 4.1;
+  color: $tundora;
+  font-weight: 500;
+}
+
+.file-selected-image {
+  height: 64px;
+  width: 64px;
+}
+
+.group-select {
+  // height: 33px;
+  //width: 264px;
+  font-size: 10px;
+  font-weight: 700;
+  color: $gray;
+  background: url('/assets/img/select-half.png') no-repeat right 0.75rem center;
+  width: 200px;
+}
+
+
+
+.invite-submit .btn {
+  padding: 1.35rem 1rem;
+}
+
+form {
+  label {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .day,
+  .month {
+    margin-right: 10px;
+  }
+  .submit {
+    margin-right: 10px;
+  }
+  .dropdown-menu {
+    background: #fff;
+  }
+}
+
+.form-control-file {
+  //height: 100%;
+}
+
+.custom-checkbox {
+  padding-left: 2.5rem;
+  .custom-control-input {
+    height: 1.7rem;
+    width: 1.7rem;
+  }
+  .custom-control-label {
+    &:before {
+      border: 1px solid #ced4da;
+      background-color: #fff;
+      height: 1.7rem;
+      width: 1.7rem;
+      top: 0.1rem
+    }
+    &:after {
+      height: 1.7rem;
+      width: 1.7rem;
+      top: 0.1rem
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .classement-form {
+    position: relative;
+    top: -7px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .file-selected-wrapper {
+    position: absolute;
+    top: 0;
+    left: 220px;
+    padding: 0 10px;
+    z-index: 100;
+  }
+  #photo.ng-dirty {
+    .custom-file-input {
+      padding-left: 195px;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  #photo.ng-dirty {
+    .file-selected-wrapper {
+      z-index: 100;
+      width: 110px;
+      padding: 50px 10px 0;
+    }
+    .custom-file-input{
+      top: 78px;
+    }
+  }
+  .account-creation,
+  .contest-creation {
+    .submit {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@include media-breakpoint-only(xs) {
+  .col-form-label-lg {
+    padding: 10px 0;
+  }
+}
+
+@media(max-width: 330px) {
+  #year {
+    background: url('/assets/img/arrow-select-large.png') no-repeat right 0.2rem center;
+    background-size: 14px;
+    padding-right: 1rem;
+  }
+}

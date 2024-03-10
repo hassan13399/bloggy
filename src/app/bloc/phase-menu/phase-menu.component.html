@@ -1,0 +1,15 @@
+<div class="phase-navigation pt-4">
+  <div class="container">
+    <div class="row justify-content-center align-bottom">
+      <div class="col-xl-10">
+        <ul class="nav phase-navigation__tabs text-center text-uppercase m-sm-0 p-0 row no-gutters"
+            id="phaseTab"
+            role="tablist" >
+          <li class="phase-navigation__tabs-item col" *ngFor="let menuItem of menu; let i = index">
+            <a class="phase-navigation__link {{menuItem.class}}" stPreventDefaultEvent href="#nolink" (click)="setActive(menuItem.value)"><span class="tab-number">{{i+1}}</span> {{'LABEL.__' + menuItem.value | translate}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<form  *ngIf="formGroup" [formGroup]="formGroup">
+<ng-container *ngFor="let model of formModel; trackBy: trackByFn" [ngSwitch]="model.type">
+
+  <st-form-control-typeahead *ngSwitchCase="'ST_TYPEAHEAD'"
+                                     [group]="formGroup"
+                                     [hasErrorMessaging]="model.hasErrorMessages"
+                                     [hidden]="model.hidden"
+                                     [layout]="formLayout"
+                                     [model]="model"
+                                     [ngClass]="[getClass(model, 'element', 'host'), getClass(model, 'grid', 'host')]"
+                                     [templates]="templates"
+                                     (dfBlur)="onEvent($event, 'blur')"
+                                     (dfChange)="onEvent($event, 'change')"
+                                     (dfFocus)="onEvent($event, 'focus')"></st-form-control-typeahead>
+
+  <st-form-control *ngSwitchDefault
+                           [group]="formGroup"
+                           [hasErrorMessaging]="model.hasErrorMessages"
+                           [hidden]="model.hidden"
+                           [layout]="formLayout"
+                           [model]="model"
+                           [ngClass]="[getClass(model, 'element', 'host'), getClass(model, 'grid', 'host')]"
+                           [templates]="templates"
+                           (dfBlur)="onEvent($event, 'blur')"
+                           (dfChange)="onEvent($event, 'change')"
+                           (dfFocus)="onEvent($event, 'focus')"></st-form-control>
+</ng-container>
+
+  <ng-content select="[st-form-bottom]"></ng-content>
+</form>

@@ -1,0 +1,122 @@
+<div class="section-top">
+  <app-main-menu></app-main-menu>
+</div>
+
+<div class="content-banner">
+  <app-countdown [displayType]="'default'"></app-countdown>
+  <app-phase-menu [menu]="phaseMenu"
+                  [activePhase]="activePhase" ></app-phase-menu>
+</div>
+<app-flash [destination]="'feedback'"></app-flash>
+<app-point-user *ngIf="isMyProno"></app-point-user>
+
+<div class="topProno text-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-10" style="font-weight: 700">
+        <app-cms [category]="'topProno'" [mode]="'text'"></app-cms>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-day-menu [menu]="dayMenu"
+      [userPseudo]="userPseudo"
+      [activeDay]="activeDay"
+></app-day-menu>
+
+<!--Day not active-->
+<div class="prologue py-5 bg-gazon" *ngIf="!isDayActive(localActiveDay)">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <div class="prologue-wrapper rounded bg-white p-5" >
+          <div class="row">
+            <div class="col-xl-10 text-turquoise prologue__points text-sm-left">
+              {{ 'LABEL.__day_inactive' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Day not active-->
+
+<!--Match Content-->
+<div class="prologue py-5 bg-gazon" *ngIf="localActiveDay ==='prologue' && isDayActive(localActiveDay)">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <div *ngFor="let pronoDef of pronoDefs; let i = index">
+          <app-prono [pronoDefInput]="pronoDef"
+                     [disableJoker]="disableJoker"
+                     [status]="'open'"
+                     [day]="localActiveDay"
+                     [isMyProno]="isMyProno"
+                     (changeJoker)="changeJoker($event)"
+                     (hasEdited)="hasEdited($event)"
+                     (notAllowedToEdit)="notAllowToEdit($event)"
+                     [isAllowedToEdit]="isAllowedToEdit"
+                     (askToEdit)="askToEdit($event)"
+                     [confirmEdit]="doEditEvent"
+          ></app-prono>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="match-content bg-gazon" *ngIf="localActiveDay !=='prologue' && isDayActive(localActiveDay)">
+  <div class="container">
+    <div class="row justify-content-center no-gutters">
+
+      <div class="col-xl-10">
+        <div *ngFor="let pronoDef of pronoDefs; let i = index">
+          <app-prono [pronoDefInput]="pronoDef"
+                     [disableJoker]="disableJoker"
+                   [status]="'open'"
+                   [day]="localActiveDay"
+                   [isMyProno]="isMyProno"
+                   (changeJoker)="changeJoker($event)"
+                     (hasEdited)="hasEdited($event)"
+                     (notAllowedToEdit)="notAllowToEdit($event)"
+                     [isAllowedToEdit]="isAllowedToEdit"
+                     (askToEdit)="askToEdit($event)"
+                     [confirmEdit]="doEditEvent"
+          ></app-prono>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Match Content-->
+
+<ng-template #NotAllowed let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{'LABEL.Update_Prono_Modal_Title'|translate}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <p>{{'LABEL.Update_Prono_Modal_Body'|translate}}</p>
+    <img style="max-width: 100%; height: auto;" [src]="currentImageSrc"/>
+    <div class="pt-4"><a routerLink="/formules" class="btn btn-primary">{{"LABEL.become_premium"|translate}}</a></div>
+  </div>
+</ng-template>
+
+<ng-template #AskToEdit let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{'LABEL.Update_Prono_Left_Modal_Title'|translate}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <p [translate]="'LABEL.Update_Prono_Left_Modal_Body'" [translateParams]="{ count: (3-currentEditionCount) }"></p>
+    <div class="mb-4"><a (click)="emitDoEdit()" href="#noLink" class="btn btn-primary" stPreventDefaultEvent>{{"LABEL.Update_Prono_Left_Modal_Button"|translate}}</a></div>
+    <img style="max-width: 100%; height: auto;" [src]="currentImageSrc"/>
+    <div class="pt-4"><a routerLink="/formules" class="btn btn-primary">{{"LABEL.become_premium"|translate}}</a></div>
+  </div>
+</ng-template>

@@ -1,0 +1,146 @@
+/*------------------------------------
+              Countdown
+-----------------------------------*/
+
+// Homepage big countdown
+.countdown {
+  h2 {
+    font-family: $montserrat;
+    font-size: 23px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+}
+
+.countdown__items {
+  font-family: $teko;
+  position: relative;
+}
+
+.countdown__number {
+  font-size: 60px;
+  //line-height: 1;
+  margin-bottom: -25px;
+}
+
+.countdown__unit {
+  font-size: 25px;
+  font-weight: 300;
+  color: $blue-chetwode;
+  //line-height: 1;
+}
+
+@include media-breakpoint-up(md) {
+  .countdown__number {
+    font-size: 150px;
+    line-height: 1;
+    margin-bottom: -25px;
+  }
+  .countdown__unit {
+    font-size: 35px;
+    line-height: 1;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .countdown__item-days {
+    &:before {
+      content: "";
+      position: absolute;
+      width: 309px;
+      height: 104px;
+      background: url('/assets/img/countdown-left.png') no-repeat;
+      top: -30px;
+      left: 0;
+    }
+  }
+  .countdown__item-hours {
+    &:before {
+      content: "";
+      position: absolute;
+      width: 84px;
+      height: 5px;
+      background: url('/assets/img/left-hours.png') no-repeat;
+      top: 69px;
+      left: -35px;
+    }
+  }
+  .countdown__item-seconds {
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 5px;
+      background: url('/assets/img/left-sec.png') no-repeat;
+      top: 69px;
+      left: -52px;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      width: 313px;
+      height: 104px;
+      background: url('/assets/img/countdown-right.png') no-repeat;
+      top: -30px;
+      right: 0;
+    }
+  }
+  .countdown__item-minutes {
+    &:before {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 129px;
+      //background: url('/assets/img/cup.png') no-repeat;
+      top: 10px;
+      left: -30px;
+    }
+  }
+}
+
+// Content small countdown
+.countdown-small__wrapper {
+  //background-image: url('/assets/img/cup-small.png');
+  background-repeat: no-repeat;
+  background-position: 15px center;
+}
+
+.countdown-small__number {
+  font-size: 62px;
+  font-weight: 300;
+  margin-bottom: -48px;
+  margin-top: -25px;
+  position: relative;
+  &:after {
+    content: ":";
+    position: absolute;
+    top: 0;
+    right: -4px;
+  }
+}
+
+.countdown-small__item-seconds {
+  .countdown-small__number:after {
+    content: "";
+  }
+}
+
+.countdown-small__unit {
+  font-size: 15px;
+}
+
+@include media-breakpoint-up(sm) {
+  .countdown-small__wrapper {
+    //padding: 5px 5px 5px 60px;
+    padding: 5px 5px 5px 5px;
+  }
+}
+@include media-breakpoint-down(xs) {
+  .countdown-small__wrapper {
+    //padding: 5px 5px 5px 50px;
+    padding: 5px 5px 5px 5px;
+  }
+  .countdown h2{
+    margin-bottom: 0;
+  }
+}

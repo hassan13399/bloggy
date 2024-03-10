@@ -1,0 +1,23 @@
+[
+  {
+    "type": "INPUT",
+    "id": "name",
+    "label": "Name",
+    "maxLength": 42,
+    "placeholder": "Name"
+  },
+  {
+    "type": "INPUT",
+    "id": "username",
+    "label": "Username",
+    "maxLength": 42,
+    "placeholder": "Username"
+  },
+  {
+    "type": "INPUT",
+    "id": "password",
+    "label": "Password",
+    "maxLength": 42,
+    "placeholder": "Password"
+  }
+]

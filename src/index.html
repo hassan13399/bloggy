@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4845420-10"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-4845420-10');
+  </script>
+
+  <!--Meta tag for mobile navigation coloured-->
+  <meta name="theme-color" content="#0e1c4a">
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>BloggyFoot</title>
+  <base href="/">
+
+  <!--Open Graph-->
+  <meta property="og:title" content="Bloggyfoot Euro 2020" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.bloggyfoot.net/home" />
+  <meta property="og:image" content="/assets/img/share_image.png" />
+  <meta property="og:descritpion" content="Votre jeu gratuit de pronostics" />
+
+  <meta name="twitter:card" content="BloggyFoot" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://www.bloggyfoot.net/assets/img/logo.ico" />
+
+  <!-- Bootstrap CSS -->
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"-->
+  <!--integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+
+  <!-- Custom styles for this template -->
+  <!--
+  <link href="html/assets/css/style.css" rel="stylesheet">-->
+
+  <!-- Facebook javascript -->
+  <script type="text/javascript" src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <script src="//cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
+  <script src="/assets/js/iframeResizer.contentWindow.min.js"></script>
+
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '204791710312036');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+                 src="https://www.facebook.com/tr?id=204791710312036&ev=PageView&noscript=1"/></noscript>
+  <!-- End Facebook Pixel Code -->
+
+<!--Google adds-->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-7504614282197479",
+      enable_page_level_ads: true
+    });
+  </script>
+  <!--End Google adds-->
+
+    <!-- Custom javascript -->
+  <!--
+  <script type="text/javascript" src="assets/js/custom.js"></script>
+  -->
+</head>
+
+
+<body class="{{bodyClass}}">
+
+<app-root></app-root>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript">
+  var stripe = Stripe('pk_live_t9akJvPM3JXrwSg5k2LOQLLA');
+  // var stripe = Stripe('pk_test_BaIAQQTsp1KfJWOr2LyXQBKm');
+  var elements = stripe.elements();
+</script>
+<!-- Plugin javascript -->
+<script type="text/javascript" src="assets/js/slick.min.js"></script>
+
+<!-- Custom javascript -->
+<script type="text/javascript" src="assets/js/custom.js"></script>
+
+<!-- End of body -->
+</body>
+
+</html>

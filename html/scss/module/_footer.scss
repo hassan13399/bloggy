@@ -1,0 +1,47 @@
+/*------------------------------------
+              Footer
+-----------------------------------*/
+
+.menu-footer{
+  border-top: 1px solid $white-33;
+  border-bottom: 1px solid $white-33;
+}
+
+.menu-footer__list{
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+  li{
+    margin-bottom: 10px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  a{
+    font-size: 17px;
+    font-weight: 500;
+  }
+}
+
+.menu-footer__btn{
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+  li {
+    margin-bottom: 10px;
+  }
+  a{
+    font-size: 12px;
+    font-weight: 800;
+    &:hover{
+      color: $white;
+    }
+  }
+}
+
+.privacy{
+  text-decoration: underline;
+  &:hover{
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,90 @@
+<!--Content banner top-->
+<div class="content-banner-top py-2 text-white" *ngIf="displayType !== 'home'">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-md-6 pb-2 pb-md-0">
+            <div class="content-banner__menu">
+              <div class="row">
+                <div class="col-6">
+                  <ul class="content-banner__menu-list m-0">
+                    <li><a routerLinkActive="active" routerLink="/group/create">{{ 'MENU.__Créer_un_concours' | translate }}</a></li>
+                    <li><a routerLinkActive="active" routerLink="/group/join">{{ 'MENU.__Rejoindre_un_concours' | translate }}</a></li>
+                    <li><a routerLinkActive="active" routerLink="/group/invite">{{ 'MENU.__Inviter_des_amis' | translate }}</a></li>
+                  </ul>
+                </div>
+                <div class="col-6">
+                  <ul class="content-banner__menu-list m-0">
+                    <li><a routerLinkActive="active" routerLink="/hint">{{ 'MENU.__Trucs et astuces' | translate }}</a></li>
+                    <li><a routerLinkActive="active" routerLink="/points/calculation">{{ 'MENU.__Le calcul des points ?' | translate }}</a></li>
+                    <li><a routerLinkActive="active" routerLink="/formules">{{ 'MENU.__Formules' | translate }}</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 pl-md-0">
+            <div class="countdown-small__wrapper text-center rounded bg-black-medium">
+              <div class="countdown__items">
+                <div class="row no-gutters">
+                  <div class="countdown-small__item countdown-small__item-days col-3">
+                    <div class="countdown-small__number">{{day}}</div>
+                    <div class="countdown-small__unit text-uppercase">{{ 'LABEL.days' | translate }}</div>
+                  </div>
+                  <div class="countdown-small__item countdown-small__item-hours col-3">
+                    <div class="countdown-small__number">{{hour}}</div>
+                    <div class="countdown-small__unit text-uppercase">{{ 'LABEL.hours' | translate }}</div>
+                  </div>
+                  <div class="countdown-small__item countdown-small__item-minutes col-3">
+                    <div class="countdown-small__number">{{min}}</div>
+                    <div class="countdown-small__unit text-uppercase">{{ 'LABEL.min' | translate }}</div>
+                  </div>
+                  <div class="countdown-small__item countdown-small__item-seconds col-3">
+                    <div class="countdown-small__number">{{sec}}</div>
+                    <div class="countdown-small__unit text-uppercase">{{ 'LABEL.sec' | translate }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Content banner top-->
+
+<!-- Countdown -->
+<section class="countdown text-white text-center pt-4" *ngIf="displayType === 'home'">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <div class="countdown__wrapper">
+          <h2>{{ 'LABEL.__Spécial Coupe du Monde' | translate }}</h2>
+          <div class="countdown__items">
+            <div class="row no-gutters">
+              <div class="countdown__item countdown__item-days col-3">
+                <div class="countdown__number">{{day}}</div>
+                <div class="countdown__unit text-uppercase">{{ 'LABEL.days' | translate }}</div>
+              </div>
+              <div class="countdown__item countdown__item-hours col-3">
+                <div class="countdown__number">{{hour}}</div>
+                <div class="countdown__unit text-uppercase">{{ 'LABEL.hours' | translate }}</div>
+              </div>
+              <div class="countdown__item countdown__item-minutes col-3">
+                <div class="countdown__number">{{min}}</div>
+                <div class="countdown__unit text-uppercase">{{ 'LABEL.min' | translate }}</div>
+              </div>
+              <div class="countdown__item countdown__item-seconds col-3">
+                <div class="countdown__number">{{sec}}</div>
+                <div class="countdown__unit text-uppercase">{{ 'LABEL.sec' | translate }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Countdown -->
